@@ -1,0 +1,584 @@
+{
+  "meta": {
+    "slug": "forgex-brand",
+    "source": "Finalized Brand Button (Figma node 168269:37824)",
+    "extractedAt": "2026-06-03",
+    "fallback": "Theme collection variables RESTORED to alias-only architecture (Batch 6 Phase 4 V7). All semantic theme vars now reference palette tokens via VARIABLE_ALIAS; zero raw HEX in theme. Earlier Batches 1+4 had stripped aliases by using setValueForMode with raw RGB; that violation is now reverted.",
+    "notes": "Dual-temperature brand: warm metallic gold (palette.brand.500=#c49557) for chrome/CTAs, deep brand-teal (palette.neutral.500=#3a7d7d) for neutral surfaces. text/neutral/* aliased to palette.brand.* warm ramp due to impedance mismatch (text wanted warm beige, palette.neutral is teal). All theme-collection vars use VARIABLE_ALIAS \u2014 zero raw HEX. text/brand/base dual-character: aliased to palette.neutral.475 (teal) per doctrine. ACCENT FIX: main/accent/* re-aliased from legacy lime palette/accent/* to palette/neutral/* (the canonical teal family). Accent and neutral now share the unified teal brand core; accent uses brighter intensity steps."
+  },
+  "palette": {
+    "neutral": {
+      "25": "#fafdfd",
+      "50": "#eef7f7",
+      "75": "#e3f2f2",
+      "100": "#d8ecec",
+      "125": "#cde6e6",
+      "150": "#c2e0e0",
+      "175": "#b7dada",
+      "200": "#add4d4",
+      "225": "#a2cece",
+      "250": "#98c7c7",
+      "275": "#8ec1c1",
+      "300": "#83baba",
+      "325": "#79b3b3",
+      "350": "#70acac",
+      "375": "#66a5a5",
+      "400": "#5d9d9d",
+      "425": "#569494",
+      "450": "#4f8a8a",
+      "475": "#5bb3b3",
+      "500": "#3a7d7d",
+      "525": "#3e7171",
+      "550": "#499f9f",
+      "575": "#376666",
+      "600": "#346161",
+      "625": "#3d8686",
+      "650": "#2d5656",
+      "675": "#2a5151",
+      "700": "#274b4b",
+      "725": "#2e6363",
+      "750": "#2a5b5b",
+      "775": "#1e3b3b",
+      "800": "#224a4a",
+      "825": "#1e4141",
+      "850": "#1a3939",
+      "875": "#122525",
+      "900": "#122828",
+      "925": "#0e1f1f",
+      "950": "#0a1717",
+      "975": "#060e0e"
+    },
+    "brand": {
+      "25": "#fdfbf9",
+      "50": "#faf6f1",
+      "75": "#f7f1e9",
+      "100": "#f4ebe0",
+      "125": "#f0e6d8",
+      "150": "#ebdbc5",
+      "175": "#e9dbc8",
+      "200": "#e6d5c0",
+      "225": "#e2d0b8",
+      "250": "#dec3a1",
+      "275": "#dbbd97",
+      "300": "#d7b88e",
+      "325": "#d3ba99",
+      "350": "#cfb491",
+      "375": "#cbaf8a",
+      "400": "#caa069",
+      "425": "#c3a47b",
+      "450": "#c49557",
+      "475": "#ba996d",
+      "500": "#c49557",
+      "525": "#b08c5d",
+      "550": "#ab8655",
+      "575": "#a27e4f",
+      "600": "#9a774a",
+      "625": "#917045",
+      "650": "#89693f",
+      "675": "#80623a",
+      "700": "#775b35",
+      "725": "#6e5430",
+      "750": "#654c2c",
+      "775": "#5c4527",
+      "800": "#50391c",
+      "825": "#49371e",
+      "850": "#3d2c16",
+      "875": "#362815",
+      "900": "#2d2111",
+      "925": "#231a0d",
+      "950": "#181209",
+      "975": "#0f0b05"
+    }
+  },
+  "themeLight": {
+    "base": {
+      "alias": "palette/neutral/975"
+    },
+    "inverse": {
+      "alias": "white (standalone)"
+    },
+    "main": {
+      "neutral": {
+        "l200": {
+          "alias": "palette/neutral/300"
+        },
+        "l100": {
+          "alias": "palette/neutral/400"
+        },
+        "base": {
+          "alias": "palette/neutral/500"
+        },
+        "d100": {
+          "alias": "palette/neutral/675"
+        },
+        "d200": {
+          "alias": "palette/neutral/750"
+        },
+        "contrast": {
+          "alias": "palette/neutral/25"
+        }
+      },
+      "brand": {
+        "l200": {
+          "alias": "palette/brand/250"
+        },
+        "l100": {
+          "alias": "palette/brand/400"
+        },
+        "base": {
+          "alias": "palette/brand/500"
+        },
+        "d100": {
+          "alias": "palette/brand/650"
+        },
+        "d200": {
+          "alias": "palette/brand/750"
+        },
+        "contrast": {
+          "alias": "palette/brand/75"
+        }
+      },
+      "accent": {
+        "l200": {
+          "alias": "palette/neutral/300",
+          "_note": "TEAL \u2014 accent shares the teal color space with neutral, not the legacy lime palette/accent ramp"
+        },
+        "l100": {
+          "alias": "palette/neutral/400"
+        },
+        "base": {
+          "alias": "palette/neutral/475",
+          "_note": "bright teal \u2014 closest match to Reference's main/accent/base #319f9f"
+        },
+        "d100": {
+          "alias": "palette/neutral/625"
+        },
+        "d200": {
+          "alias": "palette/neutral/750"
+        },
+        "contrast": {
+          "alias": "palette/neutral/25",
+          "_note": "near-white for text-on-accent contrast"
+        }
+      }
+    },
+    "text": {
+      "neutral": {
+        "50": {
+          "alias": "palette/brand/50",
+          "_note": "warm-beige impedance: aliased to brand ramp (warm) since palette.neutral is teal"
+        },
+        "100": {
+          "alias": "palette/brand/150",
+          "_note": "warm-beige impedance"
+        },
+        "200": {
+          "alias": "palette/brand/300",
+          "_note": "warm-beige impedance"
+        },
+        "300": {
+          "alias": "palette/brand/450",
+          "_note": "warm-beige impedance"
+        },
+        "400": {
+          "alias": "palette/brand/800",
+          "_note": "warm-beige impedance"
+        }
+      },
+      "brand": {
+        "l200": {
+          "alias": "palette/brand/250"
+        },
+        "base": {
+          "alias": "palette/neutral/475",
+          "_note": "DUAL-CHARACTER: text/brand is teal (matches neutral palette), not gold"
+        },
+        "d200": {
+          "alias": "palette/brand/750"
+        }
+      },
+      "on-primary": {
+        "alias": "palette/neutral/975"
+      }
+    },
+    "tint": {
+      "neutral": {
+        "50": {
+          "alias": "palette/neutral/950"
+        },
+        "100": {
+          "alias": "palette/neutral/925"
+        },
+        "150": {
+          "alias": "palette/neutral/850"
+        },
+        "200": {
+          "alias": "palette/neutral/825"
+        },
+        "250": {
+          "alias": "palette/neutral/750"
+        },
+        "300": {
+          "alias": "palette/neutral/725"
+        },
+        "400": {
+          "alias": "palette/neutral/500"
+        },
+        "500": {
+          "alias": "palette/neutral/425"
+        }
+      },
+      "brand": {
+        "50": {
+          "alias": "palette/brand/850"
+        },
+        "100": {
+          "alias": "palette/brand/800"
+        },
+        "150": {
+          "alias": "palette/brand/750"
+        },
+        "200": {
+          "alias": "palette/brand/725"
+        },
+        "250": {
+          "alias": "palette/brand/650"
+        },
+        "300": {
+          "alias": "palette/brand/600"
+        }
+      }
+    }
+  },
+  "themeDark": {
+    "_status": "untouched in V7 alias restoration; reflects previous setValueForMode raw values; needs same alias treatment if dark mode is activated"
+  },
+  "typography": {
+    "mode": "mono",
+    "fontFamilyAccent": "Jost",
+    "fontFamilyBody": "Jost",
+    "fontStyleNaming": "joined",
+    "textCase": {
+      "button": "UPPER",
+      "label": "UPPER",
+      "display": "UPPER",
+      "headline": "ORIGINAL",
+      "title": "ORIGINAL",
+      "body": "ORIGINAL",
+      "bodyStrong": "ORIGINAL"
+    }
+  },
+  "radius": {
+    "xs": 0,
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "max": 9999
+  },
+  "aliases": {
+    "text/brand/base": "#63b7b7 (concept teal, direct)",
+    "main/brand/contrast": "#fbf8f4 (concept warm cream \u2014 overrides default neutral/975 alias)",
+    "shadow/text/btn": "proposals/shadow-text-btn"
+  },
+  "proposals": [
+    {
+      "id": "shadow-text-btn",
+      "class": "shadow",
+      "tokenName": "shadow/text/btn",
+      "value": {
+        "type": "DROP_SHADOW",
+        "color": "#00000040",
+        "offset": {
+          "x": 0,
+          "y": 1
+        },
+        "radius": 2,
+        "spread": 0
+      },
+      "usedBy": [
+        "Button/*/label",
+        "Button/*/StartIcon",
+        "Button/*/EndIcon"
+      ],
+      "rationale": "Embossed legibility on the metallic-plate primary surface; matches brand tactile-3D character.",
+      "baselineImpact": "promote-empty-scaffold",
+      "createdAt": "2026-06-01"
+    },
+    {
+      "id": "gradient-brand-bezel-400",
+      "class": "gradient",
+      "tokenName": "gradient/400",
+      "value": {
+        "type": "LINEAR",
+        "angle": 180,
+        "stops": [
+          {
+            "position": 0.0,
+            "color": "#3d2c16",
+            "_note": "TODO: Resolve remote figma token link \u2014 placeholder"
+          },
+          {
+            "position": 0.5,
+            "color": "#87612f"
+          },
+          {
+            "position": 1.0,
+            "color": "#d1ac7c"
+          }
+        ]
+      },
+      "usedBy": [
+        "Button/primary/lg/default \u2192 bezel overlay"
+      ],
+      "rationale": "Concept-specific brand-bezel highlight gradient.",
+      "baselineImpact": "concept-local",
+      "createdAt": "2026-06-01"
+    },
+    {
+      "id": "gradient-brand-bezel-280",
+      "class": "gradient",
+      "tokenName": "gradient/280",
+      "value": {
+        "type": "LINEAR",
+        "angle": 180,
+        "stops": [
+          {
+            "position": 0.0,
+            "color": "#50391c",
+            "_note": "TODO: Resolve remote figma token link \u2014 placeholder"
+          },
+          {
+            "position": 1.0,
+            "color": "#ac7c3c"
+          }
+        ]
+      },
+      "usedBy": [
+        "Button/primary/lg/default \u2192 bezel overlay"
+      ],
+      "rationale": "Sibling stop in the brand-bezel highlight family.",
+      "baselineImpact": "concept-local",
+      "createdAt": "2026-06-01"
+    },
+    {
+      "id": "image-fill-button-texture",
+      "class": "imageFill",
+      "tokenName": "asset/button/plate-texture",
+      "value": {
+        "assetRef": "figma://asset/e09bc8a3-8e3b-4144-95c1-873bbb6b4660",
+        "blendMode": {
+          "css": "PLUS_LIGHTER",
+          "figma": "LINEAR_DODGE",
+          "_note": "Figma Plugin API rejects PLUS_LIGHTER; LINEAR_DODGE is the closest additive equivalent. Visual delta minor at 15% opacity."
+        },
+        "opacity": 0.15,
+        "fit": "object-cover",
+        "tilingHint": "applied twice, mirrored, inset 4px",
+        "figmaImageHash": "ce47e3d366e121f0d39fecae6cd9fa7bcf270400",
+        "figmaPilotNode": "168276:2",
+        "figmaPilotPage": "168274:2"
+      },
+      "usedBy": [
+        "Button/primary/*/* \u2192 ButtonTexture"
+      ],
+      "rationale": "Metallic-plate brand surface; defines tactile finish distinguishing primary from secondary.",
+      "baselineImpact": "concept-local",
+      "createdAt": "2026-06-01"
+    },
+    {
+      "id": "image-fill-bezel-cap",
+      "class": "imageFill",
+      "tokenName": "asset/button/bezel-cap",
+      "value": {
+        "assetRef": "figma://asset/13280cdb-825a-40f4-b221-69304fbd6d7c",
+        "geometry": "54\u00d772, mirrored across both ends"
+      },
+      "usedBy": [
+        "Button/primary/*/* \u2192 Property1L",
+        "Button/primary/*/* \u2192 Property1R"
+      ],
+      "rationale": "Ornamental L/R cap; brand-identity-defining silhouette.",
+      "baselineImpact": "concept-local",
+      "createdAt": "2026-06-01"
+    },
+    {
+      "id": "image-fill-bezel-center",
+      "class": "imageFill",
+      "tokenName": "asset/button/bezel-center",
+      "value": {
+        "assetRef": "figma://asset/1205321a-8afb-4813-8457-0b5967d81dfc"
+      },
+      "usedBy": [
+        "Button/primary/*/* \u2192 Property1C"
+      ],
+      "rationale": "Centerpiece chrome detail; coupled to bezel-cap aesthetic.",
+      "baselineImpact": "concept-local",
+      "createdAt": "2026-06-01"
+    },
+    {
+      "id": "text-neutral-50-new-token",
+      "class": "namespace",
+      "tokenName": "text/neutral/50",
+      "value": {
+        "hex": "#f4f2ee",
+        "scope": "TEXT_FILL"
+      },
+      "usedBy": [
+        "Reference EntrancePage typography ramp completion"
+      ],
+      "rationale": "Warm off-white at the lightest text-neutral end; required for full Reference typography fidelity. Created in active theme collection in Phase 4.",
+      "baselineImpact": "promote-empty-scaffold",
+      "createdAt": "2026-06-03"
+    },
+    {
+      "id": "typography-jost-overwrite",
+      "class": "typography",
+      "tokenName": "typography collection (65301:1902)",
+      "value": {
+        "changes": {
+          "fontFamily": "7 vars Inter\u2192Jost",
+          "fontStyle": "4 vars Black/ExtraBold/SemiBold\u2192Bold",
+          "lineHeight": "18 vars synced to Reference values",
+          "letterSpacing": "28 vars zeroed (Reference convention)"
+        }
+      },
+      "usedBy": [
+        "entire file typography"
+      ],
+      "rationale": "Reference uses Jost across all type ramps; the active theme had Inter with letter-spacing -0.25. Overwriting brings type rendering into Reference fidelity. File-wide impact.",
+      "baselineImpact": "promote-with-default",
+      "createdAt": "2026-06-03"
+    },
+    {
+      "id": "mainbanner-button-branded-set-RETRACTED",
+      "class": "retraction",
+      "tokenName": "(none \u2014 withdrawn)",
+      "value": {
+        "originalProposalId": "mainbanner-button-branded-set",
+        "retractionReason": "Phase 4 swapped 4 MainBanner.Button instances from local set 4050:45382 to remote-flagged set 168369:46800 (remote:true; imported from an unsubscribed library). User flagged the regression: the swap (a) pointed instances at foreign assets not owned by the file, (b) didn't propagate to adjacent layouts (instance-level swap doesn't update siblings), (c) broke label rendering \u2014 the new remote set's TEXT node wasn't wired to the carried label property, so 'Join Now' rendered as 'Label'. Path A rollback executed: all 4 instances swapped back to local 4050:45382; labels re-set and verified rendering 'Join Now'.",
+        "rollbackAt": "2026-06-03",
+        "instanceIds": [
+          "I129002:87513;139435:15771;159487:219839;103509:18362;163323:193491",
+          "I129002:87515;139435:15777;159508:222707;103509:18362;24837:159463",
+          "I129002:87517;139435:15785;159520:225487;103509:18362;24686:400",
+          "I129002:87519;139435:15793;159520:248495;103509:18362;24686:141131"
+        ]
+      },
+      "usedBy": [],
+      "rationale": "Doctrine: never swap instances to remote-flagged components. See Rule 8 in forgex_architectural_doctrine.md.",
+      "baselineImpact": "no-op (retracted)",
+      "createdAt": "2026-06-03"
+    },
+    {
+      "id": "mainbanner-button-branded-local-v2",
+      "class": "componentArchitecture",
+      "tokenName": "MainBanner.Button.BackgroundChrome (local) + 4050:45382 style=branded variant",
+      "value": {
+        "chromeComponentId": "168386:1205",
+        "chromeComponentName": "MainBanner.Button.BackgroundChrome",
+        "chromeLocation": "  MainBanner page > MainBanner > MainBanner/Default > Components",
+        "chromeStructure": "Horizontal auto-layout: left-cap-slot(14 FIXED, clip) | left-strip(FILL, gradient) | center-cap-slot(32 FIXED, clip) | right-strip(FILL, gradient) | right-cap-slot(14 FIXED, clip mirrored). Texture overlay absolute-positioned with LINEAR_DODGE blend, opacity 0.15. Vertical layoutSizing FILL on all children so chrome adapts to parent height.",
+        "extendedSet": "4050:45382 (MainBanner.Button) \u2014 added style axis (plain|branded). 9 existing variants renamed to append style=plain. 3 new branded variants created (size={lg,md,sm}, state=default, style=branded) each containing BackgroundChrome instance absolute-positioned to fill parent dimensions.",
+        "owned": true,
+        "remoteDependencies": [],
+        "assets": [
+          {
+            "path": "/tmp/forgex-assets/button-texture.png",
+            "imageHash": "ce47e3d366e121f0d39fecae6cd9fa7bcf270400"
+          },
+          {
+            "path": "/tmp/forgex-assets/bezel-cap.svg",
+            "inline": "54x72 viewBox path with stroke #624723 (=tint/brand/150)"
+          },
+          {
+            "path": "/tmp/forgex-assets/bezel-center.svg",
+            "inline": "59x72 viewBox path with stroke #624723"
+          }
+        ]
+      },
+      "usedBy": [
+        "BaseEntrancePage/Unlogged JOIN NOW (4 instances across mobile/tablet/laptop/desktop breakpoints)"
+      ],
+      "rationale": "Replaces the rejected remote-swap approach (see mainbanner-button-branded-set-RETRACTED). Local-owned chrome COMPONENT + clean style=branded variant axis on the canonical local set. Preserves existing instances (default style=plain), Code Connect remains intact, no remote dependency.",
+      "baselineImpact": "promote-with-default",
+      "createdAt": "2026-06-03"
+    },
+    {
+      "id": "theme-alias-restoration-v7",
+      "class": "tokenArchitecture",
+      "tokenName": "theme collection (1:17 light mode 1:1)",
+      "value": {
+        "raw_to_alias_conversions": 43,
+        "final_state": "ZERO raw HEX in theme; 112 aliases + 1 non-color var",
+        "impedance_mismatch_documented": "text/neutral/* aliased to palette.brand.* (warm) as best-fit since palette.neutral is teal but Reference wanted warm beige for text neutrals",
+        "verification_script": "doctrine/verify-button-colors.js (extended to validate alias presence, not just visual pixels)"
+      },
+      "usedBy": [
+        "entire theme collection"
+      ],
+      "rationale": "Restoration of broken alias chain. Earlier Batches 1+4 setValueForMode raw RGB stripped pre-existing VARIABLE_ALIAS. This proposal documents the restoration. Going forward: never call setValueForMode with raw RGB on a semantic-theme variable; always use createVariableAlias().",
+      "baselineImpact": "promote-with-default",
+      "createdAt": "2026-06-03"
+    },
+    {
+      "id": "theme-accent-teal-realignment",
+      "class": "tokenArchitecture",
+      "tokenName": "main/accent/* (theme collection 1:17 light mode)",
+      "value": {
+        "before": "main/accent/* \u2192 palette/accent/* (lime green #7fc03d base \u2014 pre-ForgeX, never updated)",
+        "after": "main/accent/* \u2192 palette/neutral/* teal steps (l200\u2192300, l100\u2192400, base\u2192475, d100\u2192625, d200\u2192750, contrast\u219225)",
+        "rationale": "Reference confirms accent and neutral share the same teal color space; accent is brighter, neutral is darker, both pull from palette/neutral/* at different intensity steps",
+        "palette_accent_remains": "untouched (lime values still there for any consumer that needs them; theme just no longer references them)"
+      },
+      "usedBy": [
+        "RadioButtonGroup.Item selected state",
+        "MainBanner accent text",
+        "Card accent text",
+        "any other main/accent/* consumer"
+      ],
+      "rationale": "Earlier V7 alias restoration mapped main/accent to palette/accent without verifying the palette/accent ramp was lime green. User identified the brand-logic mismatch \u2014 accent should be teal per Reference. Fixed by re-aliasing to palette/neutral/*.",
+      "baselineImpact": "promote-with-default",
+      "createdAt": "2026-06-03"
+    },
+    {
+      "id": "background-chrome-9-variant-matrix-v9",
+      "class": "componentArchitecture",
+      "tokenName": "BackgroundChrome (local COMPONENT_SET) + MainBanner.Button branded style axis",
+      "value": {
+        "background_chrome_set_id": "168435:1412",
+        "background_chrome_variant_count": 9,
+        "variants": {
+          "size=lg, state=default": "168386:1205 (rebuilt in-place; was V8 single-asset)",
+          "size=md, state=default": "168431:1420 (new)",
+          "size=sm, state=default": "168431:1430 (new)",
+          "size=lg, state=hover":   "168433:1412 (new)",
+          "size=md, state=hover":   "168433:1425 (new)",
+          "size=sm, state=hover":   "168433:1436 (new)",
+          "size=lg, state=pressed": "168434:1412 (new)",
+          "size=md, state=pressed": "168434:1423 (new)",
+          "size=sm, state=pressed": "168434:1433 (new)"
+        },
+        "image_hash_registry": {
+          "default": ["20a60323... (lg base)", "29ec575b... (md/sm base)", "a0c15a90... (overlay shared)"],
+          "hover":   ["b52b1e97... (lg base)", "5014288a... (hover overlay)", "1968f639... (hover detail)", "e4770245... (frame highlight)"],
+          "pressed": ["e4770245... (pressed frame)", "8f5051c6... (pressed shadow)", "0ef4e0ca... (pressed detail)"]
+        },
+        "main_banner_button_branded_variants_added": 6,
+        "main_banner_button_branded_variant_total": 9,
+        "verification": {
+          "raw_hex_in_theme": "ZERO (preserved from V7/V8)",
+          "remote_dependencies": "ZERO (all 9 chrome components local, Rule 8)",
+          "target_join_now_buttons": "4 instances resolve to size-matched branded chrome (sm 192x48, 2x md 220-224x56, lg 247x72)"
+        }
+      },
+      "usedBy": [
+        "MainBanner.Button (4050:45382) \u2014 9 branded variants",
+        "BaseEntrancePage/Unlogged (129002:87511) \u2014 4 JOIN NOW buttons"
+      ],
+      "rationale": "V8 used a single Chrome component with math-scaled cap widths (40\u219227) to fit md/sm sizes. User rejected because source 168407:121243 has 9 dedicated Component 1 variants \u2014 each with its own pre-baked image hashes and per-size proportioned chrome (defaults use different base hashes between lg and md/sm; hover/pressed add highlight+shadow overlay layers absent from defaults). V9 replicates that 1:1 matrix as 9 local COMPONENTs in a BackgroundChrome COMPONENT_SET. Each branded MainBanner.Button variant instances the matching size+state chrome. Math-scaling is no longer used.",
+      "baselineImpact": "promote-with-default",
+      "createdAt": "2026-06-03"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "slug": "excitewin",
+    "source": "concept.png",
+    "extractedAt": "2026-05-28",
+    "fallback": "Palette ramps generated via HSL lightness interpolation stand-in; the plugin's APCA/Bezier curves should regenerate at runtime for production parity.",
+    "notes": "Premium dual-accent sportsbook brand: cool deep-navy chrome with a warm gold action color. Brand interactives are gold (CTA pill); page dominantly cool dark navy. Mono Plus Jakarta Sans across all roles, with italic for the hero subtitle. Casing is concept-driven per role (buttons/tabs/display UPPER; section headers/body/See all preserve their natural Title/Sentence case)."
+  },
+  "palette": {
+    "neutral": {
+      "25": "#fbfbfc",
+      "50": "#f3f4f5",
+      "75": "#ececef",
+      "100": "#e4e5e9",
+      "125": "#dcdee3",
+      "150": "#d5d7dd",
+      "175": "#cdcfd6",
+      "200": "#c5c8d0",
+      "225": "#bdc1ca",
+      "250": "#b6b9c4",
+      "275": "#aeb2be",
+      "300": "#a6abb8",
+      "325": "#9ea3b2",
+      "350": "#979cac",
+      "375": "#8f95a5",
+      "400": "#878d9f",
+      "425": "#7f8699",
+      "450": "#787f93",
+      "475": "#70788d",
+      "500": "#6a7185",
+      "525": "#656c7f",
+      "550": "#606678",
+      "575": "#5b6172",
+      "600": "#565c6c",
+      "625": "#515665",
+      "650": "#4c515f",
+      "675": "#474b59",
+      "700": "#424652",
+      "725": "#3d414c",
+      "750": "#383b45",
+      "775": "#33363f",
+      "800": "#2e3139",
+      "825": "#292b32",
+      "850": "#24262c",
+      "875": "#1f2126",
+      "900": "#1f2330",
+      "925": "#181c27",
+      "950": "#12151e",
+      "975": "#0c0e14"
+    },
+    "brand": {
+      "25": "#fefcf9",
+      "50": "#fbf8ef",
+      "75": "#f9f3e4",
+      "100": "#f6eeda",
+      "125": "#f4eacf",
+      "150": "#f2e5c5",
+      "175": "#f0e1ba",
+      "200": "#eedcb0",
+      "225": "#ecd8a5",
+      "250": "#ead39a",
+      "275": "#e7cf90",
+      "300": "#e5cb85",
+      "325": "#e3c67a",
+      "350": "#e1c270",
+      "375": "#dfbd65",
+      "400": "#ddb95a",
+      "425": "#dbb450",
+      "450": "#d9b045",
+      "475": "#d7ab3b",
+      "500": "#d5a730",
+      "525": "#cfa12a",
+      "550": "#c49928",
+      "575": "#ba9126",
+      "600": "#b08924",
+      "625": "#a58122",
+      "650": "#9b7820",
+      "675": "#90701e",
+      "700": "#86681c",
+      "725": "#7b601a",
+      "750": "#715818",
+      "775": "#675016",
+      "800": "#5c4814",
+      "825": "#524012",
+      "850": "#473810",
+      "875": "#3d300e",
+      "900": "#33280c",
+      "925": "#29200a",
+      "950": "#1f1807",
+      "975": "#151005"
+    }
+  },
+  "themeLight": {
+    "base": "#ffffff",
+    "inverse": "#000000",
+    "tint": {
+      "neutral": {
+        "50": "#f3f4f5",
+        "100": "#e4e5e9",
+        "150": "#d5d7dd",
+        "200": "#c5c8d0",
+        "250": "#b6b9c4",
+        "300": "#a6abb8",
+        "400": "#878d9f",
+        "500": "#6a7185"
+      },
+      "brand": {
+        "50": "#fbf8ef",
+        "100": "#f6eeda",
+        "150": "#f2e5c5",
+        "200": "#eedcb0",
+        "250": "#ead39a",
+        "300": "#e5cb85"
+      }
+    },
+    "text": {
+      "neutral": {
+        "100": "#000000",
+        "200": "#2e3139",
+        "300": "#6a7185",
+        "400": "#a6abb8"
+      },
+      "brand": {
+        "l200": "#eedcb0",
+        "base": "#d5a730",
+        "d200": "#86681c"
+      }
+    },
+    "main": {
+      "neutral": {
+        "l200": "#a6abb8",
+        "l100": "#878d9f",
+        "base": "#6a7185",
+        "d100": "#4c515f",
+        "d200": "#383b45",
+        "contrast": "#ffffff"
+      },
+      "brand": {
+        "l200": "#ead39a",
+        "l100": "#ddb95a",
+        "base": "#d5a730",
+        "d100": "#9b7820",
+        "d200": "#715818",
+        "contrast": "#0c0e14"
+      }
+    }
+  },
+  "themeDark": {
+    "base": "#1f2330",
+    "inverse": "#ffffff",
+    "tint": {
+      "neutral": {
+        "50": "#24262c",
+        "100": "#2e3139",
+        "150": "#383b45",
+        "200": "#424652",
+        "250": "#4c515f",
+        "300": "#565c6c",
+        "400": "#6a7185",
+        "500": "#878d9f"
+      },
+      "brand": {
+        "50": "#473810",
+        "100": "#5c4814",
+        "150": "#715818",
+        "200": "#86681c",
+        "250": "#9b7820",
+        "300": "#b08924"
+      }
+    },
+    "text": {
+      "neutral": {
+        "100": "#ffffff",
+        "200": "#c5c8d0",
+        "300": "#878d9f",
+        "400": "#4c515f"
+      },
+      "brand": {
+        "l200": "#f2e5c5",
+        "base": "#e1c270",
+        "d200": "#86681c"
+      }
+    },
+    "main": {
+      "neutral": {
+        "l200": "#a6abb8",
+        "l100": "#878d9f",
+        "base": "#6a7185",
+        "d100": "#4c515f",
+        "d200": "#383b45",
+        "contrast": "#ffffff"
+      },
+      "brand": {
+        "l200": "#ead39a",
+        "l100": "#ddb95a",
+        "base": "#d5a730",
+        "d100": "#9b7820",
+        "d200": "#715818",
+        "contrast": "#0c0e14"
+      }
+    }
+  },
+  "typography": {
+    "mode": "mono",
+    "fontFamilyAccent": "Plus Jakarta Sans",
+    "fontFamilyBody": "Plus Jakarta Sans",
+    "fontStyleNaming": "joined",
+    "textCase": {
+      "button": "UPPER",
+      "label": "UPPER",
+      "display": "UPPER",
+      "headline": "ORIGINAL",
+      "title": "ORIGINAL",
+      "body": "ORIGINAL",
+      "bodyStrong": "ORIGINAL"
+    }
+  },
+  "radius": {
+    "xs": 2,
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "max": 9999
+  },
+  "aliases": {
+    "main/brand/contrast": "palette/neutral/975"
+  },
+  "proposals": []
+}

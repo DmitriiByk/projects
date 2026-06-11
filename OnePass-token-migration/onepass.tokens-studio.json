@@ -1,0 +1,344 @@
+{
+  "$themes": [
+    {
+      "id": "onepass-light",
+      "name": "OnePass · Light",
+      "selectedTokenSets": {
+        "palette": "enabled",
+        "semantic-light": "enabled",
+        "brand-partners": "enabled",
+        "typography": "enabled",
+        "legacy": "enabled"
+      }
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "palette",
+      "semantic-light",
+      "brand-partners",
+      "typography",
+      "legacy"
+    ]
+  },
+  "palette": {
+    "palette": {
+      "neutral": {
+        "25": { "value": "#F4F7FF", "type": "color" },
+        "50": { "value": "#E5EEFF", "type": "color" },
+        "75": { "value": "#E5EBFC", "type": "color" },
+        "100": { "value": "#D0E0FD", "type": "color" },
+        "150": { "value": "#C6DAFF", "type": "color" },
+        "200": { "value": "#AAC6FB", "type": "color" },
+        "300": { "value": "#93B0EC", "type": "color" },
+        "400": { "value": "#8C87B3", "type": "color", "description": "Canonical Palette value. Conflict closed by owner: short neutral/400 now aliases here." },
+        "500": { "value": "#5977B2", "type": "color" },
+        "600": { "value": "#486399", "type": "color" },
+        "700": { "value": "#334973", "type": "color" },
+        "800": { "value": "#223252", "type": "color" },
+        "850": { "value": "#1C283F", "type": "color" },
+        "900": { "value": "#101624", "type": "color" },
+        "950": { "value": "#080B12", "type": "color" }
+      },
+      "brand": {
+        "25": { "value": "#F5F9FE", "type": "color" },
+        "50": { "value": "#EAF5FF", "type": "color" },
+        "100": { "value": "#D8EBFF", "type": "color" },
+        "150": { "value": "#C6E2FF", "type": "color" },
+        "200": { "value": "#B0D7FF", "type": "color" },
+        "250": { "value": "#83BCF4", "type": "color" },
+        "300": { "value": "#71B8FF", "type": "color" },
+        "400": { "value": "#3198FF", "type": "color" },
+        "500": { "value": "#0080FF", "type": "color" },
+        "600": { "value": "#0072ED", "type": "color" },
+        "700": { "value": "#0058C5", "type": "color" },
+        "800": { "value": "#0044A0", "type": "color" },
+        "850": { "value": "#00337D", "type": "color" },
+        "900": { "value": "#00235E", "type": "color" },
+        "950": { "value": "#00173F", "type": "color" }
+      },
+      "accent": {
+        "50": { "value": "#FFE2F0", "type": "color" },
+        "100": { "value": "#FFCCE6", "type": "color" },
+        "200": { "value": "#FFA6D2", "type": "color" },
+        "300": { "value": "#FF87C1", "type": "color" },
+        "400": { "value": "#FF51A6", "type": "color" },
+        "500": { "value": "#F6077B", "type": "color" },
+        "600": { "value": "#D9066D", "type": "color" },
+        "700": { "value": "#C20562", "type": "color" },
+        "750": { "value": "#AF0558", "type": "color" },
+        "800": { "value": "#9F0450", "type": "color" },
+        "850": { "value": "#910449", "type": "color" },
+        "900": { "value": "#850443", "type": "color" },
+        "950": { "value": "#7A033D", "type": "color" }
+      },
+      "positive": {
+        "200": { "value": "#C6E99A", "type": "color" },
+        "300": { "value": "#ADE06E", "type": "color" },
+        "500": { "value": "#7CCC18", "type": "color" },
+        "600": { "value": "#5BA313", "type": "color" }
+      },
+      "negative": {
+        "100": { "value": "#FFCCCC", "type": "color" },
+        "200": { "value": "#FF9999", "type": "color" },
+        "300": { "value": "#FF6666", "type": "color" },
+        "500": { "value": "#FF0000", "type": "color" },
+        "600": { "value": "#CC0000", "type": "color" },
+        "700": { "value": "#990000", "type": "color" }
+      },
+      "warning": {
+        "400": { "value": "#FFF199", "type": "color" },
+        "500": { "value": "#FFDD00", "type": "color" },
+        "600": { "value": "#FFB159", "type": "color" },
+        "900": { "value": "#FF5E00", "type": "color" }
+      },
+      "additional": {
+        "100": { "value": "#D3C9EF", "type": "color" },
+        "300": { "value": "#AA00FF", "type": "color" },
+        "400": { "value": "#9C00D2", "type": "color" },
+        "500": { "value": "#FF00FF", "type": "color" },
+        "550": { "value": "#00D4FF", "type": "color", "description": "outlier (cyan) kept inside additional as OnePass extension family per owner decision." },
+        "600": { "value": "#5500FF", "type": "color" },
+        "625": { "value": "#361EE0", "type": "color" },
+        "650": { "value": "#1B0F8B", "type": "color" }
+      },
+      "blackWhite": {
+        "white": { "value": "#FFFFFF", "type": "color" },
+        "black": { "value": "#000000", "type": "color" }
+      }
+    }
+  },
+  "semantic-light": {
+    "themeLight": {
+      "base": { "value": "{palette.blackWhite.white}", "type": "color", "description": "Background/primary" },
+      "inverse": { "value": "{palette.blackWhite.black}", "type": "color" },
+      "tint": {
+        "brand": {
+          "50": { "value": "{palette.brand.25}", "type": "color", "description": "Background/secondary" },
+          "100": { "value": "{palette.brand.100}", "type": "color", "description": "Background/fourth" }
+        },
+        "neutral": {
+          "50": { "value": "{palette.neutral.50}", "type": "color", "description": "Input/fill selected" },
+          "75": { "value": "{palette.neutral.75}", "type": "color", "description": "Input/Disable" },
+          "200": { "value": "{palette.neutral.200}", "type": "color", "description": "Background/contrast fourth" },
+          "300": { "value": "{palette.neutral.300}", "type": "color", "description": "Background/contrast secondary" },
+          "500": { "value": "{palette.neutral.500}", "type": "color", "description": "Background/contrast primary" },
+          "900": { "value": "{palette.neutral.900}", "type": "color", "description": "Background/popup background" },
+          "inputFill": { "value": "{palette.blackWhite.white}", "type": "color", "description": "Input/Fill" },
+          "inputFillFocus": { "value": "{palette.blackWhite.white}", "type": "color", "description": "Input/Fill focus" }
+        },
+        "accent": {
+          "200": { "value": "{palette.accent.200}", "type": "color", "description": "Functional/Info" }
+        },
+        "additional": {
+          "100": { "value": "{palette.additional.100}", "type": "color", "description": "Background/tertiary — accepted by owner: nearest primitive, value drift #EEECFF→#D3C9EF allowed." }
+        }
+      },
+      "main": {
+        "neutral": {
+          "l200": { "value": "{palette.neutral.100}", "type": "color", "description": "Buttons/tertiary-disable" },
+          "l100": { "value": "{palette.neutral.300}", "type": "color", "description": "Input/Stroke (border role)" },
+          "base": { "value": "{palette.neutral.500}", "type": "color", "description": "Buttons/Text middle" },
+          "d200": { "value": "{palette.neutral.800}", "type": "color", "description": "Buttons/Text dark" },
+          "contrast": { "value": "{palette.blackWhite.white}", "type": "color", "description": "Buttons/Text bright" }
+        },
+        "brand": {
+          "l100": { "value": "{palette.brand.400}", "type": "color", "description": "Input/stroke focus" },
+          "base": { "value": "{palette.brand.500}", "type": "color", "description": "Input/Stroke selected" }
+        },
+        "accent": {
+          "l200": { "value": "{palette.accent.300}", "type": "color", "description": "Links/Primary-tap" },
+          "base": { "value": "{palette.accent.500}", "type": "color", "description": "Links/Primary" }
+        },
+        "positive": {
+          "base": { "value": "{palette.positive.600}", "type": "color", "description": "Functional/Done" }
+        },
+        "warning": {
+          "base": { "value": "{palette.warning.600}", "type": "color", "description": "Functional/warning" }
+        },
+        "negative": {
+          "l200": { "value": "{palette.negative.300}", "type": "color", "description": "Functional/Alert" },
+          "base": { "value": "{palette.negative.500}", "type": "color", "description": "Functional/Error" }
+        }
+      },
+      "links": {
+        "alert": { "value": "{palette.negative.500}", "type": "color", "description": "Links/Alert — separate token from Functional/Error (same value #FF0000)" }
+      },
+      "text": {
+        "neutral": {
+          "100": { "value": "{palette.brand.950}", "type": "color", "description": "Text/Primary — role primary text, value = brand/950 (#00173F)." },
+          "300": { "value": "{palette.neutral.600}", "type": "color", "description": "Text/Secondary" },
+          "contrast": { "value": "{palette.blackWhite.white}", "type": "color", "description": "Text/Contrast primary" },
+          "contrastSecondary": { "value": "{palette.neutral.100}", "type": "color", "description": "Text/Contrast secondary" },
+          "iconNeutral": { "value": "{palette.neutral.200}", "type": "color", "description": "Other/icon100" },
+          "iconInverse": { "value": "{palette.neutral.900}", "type": "color", "description": "Other/icon1000" }
+        },
+        "brand": {
+          "base": { "value": "{palette.brand.500}", "type": "color", "description": "Text/Accent" },
+          "iconBrand": { "value": "{palette.brand.500}", "type": "color", "description": "Other/icon25" },
+          "iconBrandDark": { "value": "{palette.brand.850}", "type": "color", "description": "Other/icon50" }
+        },
+        "accent": {
+          "icon": { "value": "{palette.accent.500}", "type": "color", "description": "Other/icon400" }
+        },
+        "contrast": {
+          "icon": { "value": "{palette.blackWhite.white}", "type": "color", "description": "Other/icon800" }
+        }
+      }
+    }
+  },
+  "brand-partners": {
+    "brandPartners": {
+      "billyBets": {
+        "50": { "value": "#751925", "type": "color" },
+        "100": { "value": "#3F010A", "type": "color" },
+        "200": { "value": "", "type": "color", "description": "empty slot (style/gradient) — do not delete" }
+      },
+      "boomerang": {
+        "50": { "value": "#3B3737", "type": "color", "description": "merged Boomerang + BoomerangCasino namespace" },
+        "100": { "value": "#0D1014", "type": "color" },
+        "200": { "value": "", "type": "color", "description": "empty slot — do not delete" }
+      },
+      "mrPacho": {
+        "50": { "value": "#365BFF", "type": "color" },
+        "100": { "value": "#04005E", "type": "color" },
+        "200": { "value": "", "type": "color", "description": "empty slot — do not delete" }
+      }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": { "value": "Plus Jakarta Sans", "type": "fontFamilies" },
+      "button": { "value": "Plus Jakarta Sans", "type": "fontFamilies" },
+      "paragraph": { "value": "Inter", "type": "fontFamilies", "description": "Inter — NOT changed per owner decision" }
+    },
+    "button": {
+      "xxs": {
+        "fontSize": { "value": "12", "type": "sizing" },
+        "lineHeight": { "value": "18", "type": "sizing" },
+        "letterSpacing": { "value": "0", "type": "sizing" }
+      },
+      "xs": {
+        "fontSize": { "value": "14", "type": "sizing" },
+        "lineHeight": { "value": "22", "type": "sizing" },
+        "letterSpacing": { "value": "0", "type": "sizing" }
+      },
+      "sm": {
+        "fontSize": { "value": "16", "type": "sizing" },
+        "lineHeight": { "value": "22", "type": "sizing" },
+        "letterSpacing": { "value": "0", "type": "sizing" }
+      },
+      "md": {
+        "fontSize": { "value": "20", "type": "sizing" },
+        "lineHeight": { "value": "24", "type": "sizing" },
+        "letterSpacing": { "value": "0", "type": "sizing" }
+      },
+      "lg": {
+        "fontSize": { "value": "28", "type": "sizing" },
+        "lineHeight": { "value": "32", "type": "sizing" },
+        "letterSpacing": { "value": "0", "type": "sizing" }
+      },
+      "xl": {
+        "fontSize": { "value": "32", "type": "sizing" },
+        "lineHeight": { "value": "36", "type": "sizing" },
+        "letterSpacing": { "value": "0", "type": "sizing" }
+      }
+    }
+  },
+  "legacy": {
+    "neutral": {
+      "25": { "value": "{palette.neutral.25}", "type": "color", "description": "deprecated alias — do not delete" },
+      "50": { "value": "{palette.neutral.50}", "type": "color", "description": "deprecated alias — do not delete" },
+      "75": { "value": "{palette.neutral.75}", "type": "color", "description": "deprecated alias — do not delete" },
+      "100": { "value": "{palette.neutral.100}", "type": "color", "description": "deprecated alias — do not delete" },
+      "150": { "value": "{palette.neutral.150}", "type": "color", "description": "deprecated alias — do not delete" },
+      "200": { "value": "{palette.neutral.200}", "type": "color", "description": "deprecated alias — do not delete" },
+      "300": { "value": "{palette.neutral.300}", "type": "color", "description": "deprecated alias — do not delete" },
+      "400": { "value": "{palette.neutral.400}", "type": "color", "description": "deprecated alias — conflict closed by owner: re-pointed to canonical palette.neutral.400 (#8C87B3). Was raw #7595D5. Do not delete." },
+      "500": { "value": "{palette.neutral.500}", "type": "color", "description": "deprecated alias — do not delete" },
+      "600": { "value": "{palette.neutral.600}", "type": "color", "description": "deprecated alias — do not delete" },
+      "700": { "value": "{palette.neutral.700}", "type": "color", "description": "deprecated alias — do not delete" },
+      "800": { "value": "{palette.neutral.800}", "type": "color", "description": "deprecated alias — do not delete" },
+      "850": { "value": "{palette.neutral.850}", "type": "color", "description": "deprecated alias — do not delete" },
+      "900": { "value": "{palette.neutral.900}", "type": "color", "description": "deprecated alias — do not delete" },
+      "950": { "value": "{palette.neutral.950}", "type": "color", "description": "deprecated alias — do not delete" }
+    },
+    "brand": {
+      "25": { "value": "{palette.brand.25}", "type": "color", "description": "deprecated alias — do not delete" },
+      "50": { "value": "{palette.brand.50}", "type": "color", "description": "deprecated alias — do not delete" },
+      "100": { "value": "{palette.brand.100}", "type": "color", "description": "deprecated alias — do not delete" },
+      "150": { "value": "{palette.brand.150}", "type": "color", "description": "deprecated alias — do not delete" },
+      "200": { "value": "{palette.brand.200}", "type": "color", "description": "deprecated alias — do not delete" },
+      "250": { "value": "{palette.brand.250}", "type": "color", "description": "deprecated alias — do not delete" },
+      "300": { "value": "{palette.brand.300}", "type": "color", "description": "deprecated alias — do not delete" },
+      "400": { "value": "{palette.brand.400}", "type": "color", "description": "deprecated alias — do not delete" },
+      "500": { "value": "{palette.brand.500}", "type": "color", "description": "deprecated alias — do not delete" },
+      "600": { "value": "{palette.brand.600}", "type": "color", "description": "deprecated alias — do not delete" },
+      "700": { "value": "{palette.brand.700}", "type": "color", "description": "deprecated alias — do not delete" },
+      "800": { "value": "{palette.brand.800}", "type": "color", "description": "deprecated alias — do not delete" },
+      "850": { "value": "{palette.brand.850}", "type": "color", "description": "deprecated alias — do not delete" },
+      "900": { "value": "{palette.brand.900}", "type": "color", "description": "deprecated alias — do not delete" },
+      "950": { "value": "{palette.brand.950}", "type": "color", "description": "deprecated alias — do not delete" }
+    },
+    "accent": {
+      "50": { "value": "{palette.accent.50}", "type": "color", "description": "deprecated alias — do not delete" },
+      "100": { "value": "{palette.accent.100}", "type": "color", "description": "deprecated alias — do not delete" },
+      "200": { "value": "{palette.accent.200}", "type": "color", "description": "deprecated alias — do not delete" },
+      "300": { "value": "{palette.accent.300}", "type": "color", "description": "deprecated alias — do not delete" },
+      "400": { "value": "{palette.accent.400}", "type": "color", "description": "deprecated alias — do not delete" },
+      "500": { "value": "{palette.accent.500}", "type": "color", "description": "deprecated alias — do not delete" },
+      "600": { "value": "{palette.accent.600}", "type": "color", "description": "deprecated alias — do not delete" },
+      "700": { "value": "{palette.accent.700}", "type": "color", "description": "deprecated alias — do not delete" },
+      "750": { "value": "{palette.accent.750}", "type": "color", "description": "deprecated alias — do not delete" },
+      "800": { "value": "{palette.accent.800}", "type": "color", "description": "deprecated alias — do not delete" },
+      "850": { "value": "{palette.accent.850}", "type": "color", "description": "deprecated alias — do not delete" },
+      "900": { "value": "{palette.accent.900}", "type": "color", "description": "deprecated alias — do not delete" },
+      "950": { "value": "{palette.accent.950}", "type": "color", "description": "deprecated alias — do not delete" }
+    },
+    "positive": {
+      "200": { "value": "{palette.positive.200}", "type": "color", "description": "deprecated alias (was Green) — do not delete" },
+      "300": { "value": "{palette.positive.300}", "type": "color", "description": "deprecated alias (was Green) — do not delete" },
+      "500": { "value": "{palette.positive.500}", "type": "color", "description": "deprecated alias (was Green) — do not delete" },
+      "600": { "value": "{palette.positive.600}", "type": "color", "description": "deprecated alias (was Green) — do not delete" }
+    },
+    "negative": {
+      "100": { "value": "{palette.negative.100}", "type": "color", "description": "deprecated alias (was Red) — do not delete" },
+      "200": { "value": "{palette.negative.200}", "type": "color", "description": "deprecated alias (was Red) — do not delete" },
+      "300": { "value": "{palette.negative.300}", "type": "color", "description": "deprecated alias (was Red) — do not delete" },
+      "500": { "value": "{palette.negative.500}", "type": "color", "description": "deprecated alias (was Red) — do not delete" },
+      "600": { "value": "{palette.negative.600}", "type": "color", "description": "deprecated alias (was Red) — do not delete" },
+      "700": { "value": "{palette.negative.700}", "type": "color", "description": "deprecated alias (was Red) — do not delete" }
+    },
+    "warning": {
+      "400": { "value": "{palette.warning.400}", "type": "color", "description": "deprecated alias (was Yellow) — do not delete" },
+      "500": { "value": "{palette.warning.500}", "type": "color", "description": "deprecated alias (was Yellow) — do not delete" },
+      "600": { "value": "{palette.warning.600}", "type": "color", "description": "deprecated alias (was Yellow) — do not delete" },
+      "900": { "value": "{palette.warning.900}", "type": "color", "description": "deprecated alias (was Yellow) — do not delete" }
+    },
+    "additional": {
+      "100": { "value": "{palette.additional.100}", "type": "color", "description": "deprecated alias — do not delete" },
+      "300": { "value": "{palette.additional.300}", "type": "color", "description": "deprecated alias — do not delete" },
+      "400": { "value": "{palette.additional.400}", "type": "color", "description": "deprecated alias — do not delete" },
+      "500": { "value": "{palette.additional.500}", "type": "color", "description": "deprecated alias — do not delete" },
+      "550": { "value": "{palette.additional.550}", "type": "color", "description": "deprecated alias (cyan outlier) — do not delete" },
+      "600": { "value": "{palette.additional.600}", "type": "color", "description": "deprecated alias — do not delete" },
+      "625": { "value": "{palette.additional.625}", "type": "color", "description": "deprecated alias — do not delete" },
+      "650": { "value": "{palette.additional.650}", "type": "color", "description": "deprecated alias — do not delete" }
+    },
+    "blackWhite": {
+      "white": { "value": "{palette.blackWhite.white}", "type": "color", "description": "deprecated alias (was black_white/white) — do not delete" }
+    },
+    "opacity": {
+      "white10": { "value": "{palette.neutral.25}", "type": "color", "description": "Opacity/25-White10% base alias; alpha token follow-up — do not delete" },
+      "white20": { "value": "{palette.blackWhite.white}", "type": "color", "description": "Opacity/75-White20% base alias — do not delete" },
+      "positive10": { "value": "{palette.positive.600}", "type": "color", "description": "Opacity/50-Positive10% base alias — do not delete" },
+      "error40": { "value": "{palette.negative.500}", "type": "color", "description": "Opacity/100-Error40% base alias — do not delete" },
+      "error20": { "value": "{palette.negative.500}", "type": "color", "description": "Opacity/150-Error20% base alias — do not delete" },
+      "raw25": { "value": "#F4F7FF59", "type": "color", "description": "raw opacity/25 (semi-transparent) — kept as-is, alpha token follow-up" },
+      "raw75": { "value": "#FFFFFF33", "type": "color", "description": "raw opacity/75 — kept as-is" },
+      "raw50": { "value": "#5BA3131A", "type": "color", "description": "raw opacity/50 — kept as-is" },
+      "raw100": { "value": "#FF000066", "type": "color", "description": "raw opacity/100 — kept as-is" },
+      "raw150": { "value": "#FF000033", "type": "color", "description": "raw opacity/150 — kept as-is" }
+    }
+  }
+}

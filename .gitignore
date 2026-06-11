@@ -1,0 +1,6 @@
+.DS_Store
+.__perm_test
+**/.git_off/
+**/.git_disabled/
+.git/_stale_*/
+.git/index.lock*
