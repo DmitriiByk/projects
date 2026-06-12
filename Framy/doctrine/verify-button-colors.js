@@ -8,7 +8,7 @@
  * Two execution modes:
  *
  *  (A) Standalone — Node.js, requires FIGMA_TOKEN env var with file_read scope.
- *      Run: FIGMA_TOKEN=figd_xxx node verify-button-colors.js
+ *      Run: FIGMA_TOKEN=figd_YOUR_FIGMA_TOKEN node verify-button-colors.js
  *      Uses Figma REST API to fetch both subtrees, walks them, compares.
  *
  *  (B) In-Plugin — paste the COMPARE_LOGIC function body into a use_figma call.

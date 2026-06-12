@@ -4,3 +4,4 @@
 **/.git_disabled/
 .git/_stale_*/
 .git/index.lock*
+**/.claude/settings.local.json
