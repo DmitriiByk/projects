@@ -1,0 +1,162 @@
+/* ==========================================================================
+   OnePass Design Tokens — extracted from Figma file 3J7XTajyyGvKLMVWwQaiJk
+   Generated: 2026-06-12
+   Source nodes: UI KIT page (94:63930), Button set (94:64168), Play button (150:80527)
+   All hex values are exact Figma variable values.
+   ========================================================================== */
+
+@theme {
+
+  /* --------------------------------------------------------------------------
+     BRAND PALETTE  (brand/*)
+     Figma variables verified — all values match recon exactly.
+  -------------------------------------------------------------------------- */
+  --color-brand-25:  #f5f9fe;
+  --color-brand-100: #cfe3fd;
+  --color-brand-250: #83bcf4;
+  --color-brand-300: #71b8ff;
+  --color-brand-400: #3198ff;
+  --color-brand-500: #0080ff;
+  --color-brand-600: #0072ed;
+  --color-brand-800: #0044a0;
+  --color-brand-850: #00337d;
+  --color-brand-950: #00173f;
+
+  /* --------------------------------------------------------------------------
+     NEUTRAL PALETTE  (neutral/*)
+     Blue-grey scale. neutral/75 (#e5ebfc) confirmed in Figma.
+  -------------------------------------------------------------------------- */
+  --color-neutral-25:  #f4f7ff;
+  --color-neutral-50:  #e5eeff;
+  --color-neutral-75:  #e5ebfc;
+  --color-neutral-100: #d0e0fd;
+  --color-neutral-150: #c6daff;
+  --color-neutral-200: #aac6fb;
+  --color-neutral-300: #93b0ec;
+  --color-neutral-500: #5977b2;
+  --color-neutral-800: #223252;
+  --color-neutral-900: #101624;
+
+  /* Extra dark from Figma "dark grey" variable — sits between 800 and 900 */
+  --color-neutral-dark: #1b3063;
+
+  /* --------------------------------------------------------------------------
+     ADDITIONAL / ACCENT PALETTE  (additional/*, accent/*)
+     Magenta, cyan, purple family.
+  -------------------------------------------------------------------------- */
+  --color-additional-300: #aa00ff;
+  --color-additional-400: #9c00d2;
+  --color-additional-500: #ff00ff;
+  --color-additional-550: #00d4ff;
+  --color-additional-600: #5500ff;
+
+  /* Accent — the hot-pink CTA color (Figma: accent/500, Other/icon400) */
+  --color-accent-pink:    #f6077b;
+
+  /* Convenience aliases */
+  --color-accent-magenta: #ff00ff;
+  --color-accent-cyan:    #00d4ff;
+
+  /* --------------------------------------------------------------------------
+     NEGATIVE / STATUS
+     Figma exposes negative/300 only; negative/500 does not exist in file.
+  -------------------------------------------------------------------------- */
+  --color-negative-300: #ff6666;
+
+  /* --------------------------------------------------------------------------
+     KYC / SUCCESS  (PlayerPassCard — not in existing Figma token file)
+     Observed from card screenshot: light green bg + darker green text/icon.
+  -------------------------------------------------------------------------- */
+  --color-kyc-bg:   #e6f9ee;
+  --color-kyc-text: #1a7f4b;
+
+  /* --------------------------------------------------------------------------
+     PLAYER PASS CARD  (PlayerPassCard background gradient stops)
+     Card uses a soft lavender/periwinkle gradient background.
+     Derived from card screenshot: starts near neutral-75, ends near neutral-50.
+  -------------------------------------------------------------------------- */
+  --color-card-pass-from: #e8effe;
+  --color-card-pass-to:   #d6e8ff;
+
+  /* --------------------------------------------------------------------------
+     BLACK / WHITE
+  -------------------------------------------------------------------------- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* --------------------------------------------------------------------------
+     SEMANTIC SURFACE & TEXT ALIASES
+     Mapped from Figma Background/* and button text role variables.
+  -------------------------------------------------------------------------- */
+
+  /* Backgrounds */
+  --color-app-bg:            #f5f9fe;
+  --color-surface:           #ffffff;
+  --color-surface-secondary: #f4f7ff;
+  --color-surface-contrast:  #5977b2;
+
+  /* Text */
+  --color-text-primary:   #101624;
+  --color-text-secondary: #5977b2;
+  --color-text-tertiary:  #93b0ec;
+  --color-text-on-brand:  #ffffff;
+  --color-text-dark:      #223252;
+  --color-text-middle:    #5977b2;
+
+  /* Border */
+  --color-border:        #d0e0fd;
+  --color-border-subtle: #e5eeff;
+
+  /* Button state fills */
+  --color-btn-tertiary-disabled: #d0e0fd;
+
+  /* Opacity swatch */
+  --color-opacity-25: #f4f7ff59;
+
+  /* --------------------------------------------------------------------------
+     TYPOGRAPHY
+     Font family is declared in src/index.css @theme to avoid duplication.
+     Size tokens generate text-* utilities.
+     Figma variables: fontSize/50=12, /100=14, /150=16, /200=18, /450=32
+     lineHeight/75=16, /150=22, /200=24, /350=36
+  -------------------------------------------------------------------------- */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-4xl:  2rem;
+
+  /* --------------------------------------------------------------------------
+     BORDER RADIUS
+     Figma only tokenizes two radius values: lg=12, max=9999.
+     Remaining steps are derived — radius was NOT fully tokenized in Figma.
+  -------------------------------------------------------------------------- */
+  --radius-sm:   0.5rem;
+  --radius-md:   0.75rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.25rem;
+  --radius-2xl:  1.5rem;
+  --radius-full: 624.9375rem;
+
+}
+
+/* ==========================================================================
+   NON-UTILITY CUSTOM PROPERTIES
+   Gradient and shadow are plain CSS props; they do not need Tailwind utilities.
+   ========================================================================== */
+
+:root {
+  /* Play button gradient — stops derived from Play button node (150:80527) color family:
+     brand/500 → additional/550 → additional/300 → additional/500 */
+  --gradient-play: linear-gradient(
+    135deg,
+    #0080ff 0%,
+    #00d4ff 30%,
+    #aa00ff 65%,
+    #ff00ff 100%
+  );
+
+  /* Wallet card shadow — Figma: "Wallet Button Shadow"
+     DROP_SHADOW, color: additional/300 (#aa00ff), offset (0,0), radius 12, spread 0 */
+  --shadow-wallet: 0 0 12px 0 #aa00ff;
+}

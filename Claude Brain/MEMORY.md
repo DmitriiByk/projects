@@ -10,3 +10,4 @@
 - [Forge-X](forge-x.md) — дизайн-система: токены, типографика, файлы, Figma-доступы и MCP-нюансы.
 - [Forge-X Skills](forge-x-skills.md) — инвентарь скиллов/доктрин Framy + аудит (дубли, устаревшее, пробелы).
 - [Forge-X Figma Map](forge-x-figma-map.md) — node-id карта (brand-мастера, экраны, страницы) + injection-нода 168270:40488.
+- [Session Learnings](session-learnings.md) — процесс-уроки и оптимизации (local-vs-remote сначала, use_figma как дефолт записи, цвет-сохраняющая перепривязка, деление с субагентом).

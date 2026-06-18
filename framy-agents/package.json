@@ -1,0 +1,15 @@
+{
+  "name": "framy-agents",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Панель управления сабагентами Claude Code: просмотр, смена модели, запуск задач, добавление новых агентов.",
+  "scripts": {
+    "postinstall": "npm --prefix server install && npm --prefix web install",
+    "dev": "concurrently -n server,web -c blue,magenta \"npm --prefix server run dev\" \"npm --prefix web run dev\"",
+    "build": "npm --prefix web run build",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
