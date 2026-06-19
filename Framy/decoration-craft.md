@@ -13,6 +13,7 @@ Decoration earns its place where it builds **hierarchy or brand**, not everywher
 - **Rich decoration belongs on** (🟩 High-Custom territory): hero/main banners, primary CTA / brand buttons, promo & win/celebration moments, logos, empty-state focal art, top-of-funnel surfaces the brand is "sold" on.
 - **Keep it plain** (Standard / 🟧 Low-Custom): forms, inputs, lists, tables, navigation, secondary/tertiary buttons, dense content, utility chrome. Here a token fill + stroke + radius is the *correct* finish — more is noise.
 - **The test:** remove the decoration mentally. If hierarchy/brand is lost → keep it. If nothing is lost → cut it. Over-decorated utility UI reads as cheap, not premium.
+- **Calibrate against real apps:** for the "how much richness is normal here" question, check `mobbin-reference.md` — see how premium apps in the same category decorate this surface. Match the category norm; don't out-decorate utility UI.
 
 ## The core rule — climb to the LIGHTEST technique that achieves the look
 Each rung up costs more (build time, maintenance, responsive fragility). Use the cheapest rung that reads the same at the **target size on a real screen**. Never jump to images/chrome when an effect+gradient is indistinguishable; never under-build a hero the brand depends on.

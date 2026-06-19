@@ -17,6 +17,8 @@ import { getAgentDirs, MODEL_PRESETS } from "./config.js";
 import { listConnectors, upsertConnector, deleteConnector, configSources, getConnectorRaw } from "./connectors.js";
 import { listTools, callTool } from "./mcpClient.js";
 import { getMcpToken } from "./claudeCreds.js";
+import { listSkills } from "./skills.js";
+import { translateItems } from "./translate.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -102,6 +104,18 @@ app.post("/api/import/github", wrap(async (req, res) => {
     }
   }
   res.json({ created, errors });
+}));
+
+// --- Скиллы ---
+app.get("/api/skills", wrap(async (req, res) => {
+  res.json({ skills: await listSkills() });
+}));
+
+// --- Автоперевод описаний (через claude CLI, с кэшем) ---
+app.post("/api/translate", wrap(async (req, res) => {
+  const { items } = req.body || {};
+  if (!Array.isArray(items)) return res.status(400).json({ error: "Нужен массив items" });
+  res.json(await translateItems(items));
 }));
 
 // --- Коннекторы (MCP-серверы Claude Code / Desktop) ---

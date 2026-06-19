@@ -31,6 +31,10 @@ Entry point for any agent working in this repo. **Read in the order below before
 - `figma-token-sync.md` — sync token **structure** (which tokens exist + geometry) from Figma into `build-tokens.js`, regenerate `tailwind.config.js`. Never syncs concept values (font family, colors) — those go to theme JSON.
 - `rebrand-pipeline.md` — **Dynamic Theme Interpreter** (the mature rebrand workflow): concept.png → JSON theme override (Phases 1–5). Canonical copy lives here; a mirror exists at `~/Downloads/rebrand-pipeline.md` — keep in sync.
 - `figma-theme-rebrand.md` — DEPRECATED redirect to `rebrand-pipeline.md` (already reconciled; the old contradictory "bake concept HEX into config" workflow was removed). Use `rebrand-pipeline.md` for all rebrands.
+- `mobbin-reference.md` — **reference layer.** Use the connected Mobbin MCP to ground projecting and Figma audits in real-world UI conventions (3–5 references per pattern). Canonical protocol; the design skills point here. Informs, never overrides doctrine; extract structure, never brand specifics.
+
+## 3a. Routing — design references
+Any design work that involves projecting a screen/component or auditing a Figma mockup should pull real-world references via **Mobbin** first, following `mobbin-reference.md`. `component-builder`, `decoration-craft`, `figma-generate-spec` and `casino-mockup-conversion` already point to it at the right step. Mobbin informs decisions; doctrine (Rule 0, sentinels, token contract) still wins on conflict.
 
 ## 4. Sentinel colors (NEVER flag as debt)
 - `#ff00ff` magenta — icon mask-paint slot.

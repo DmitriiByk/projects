@@ -7,6 +7,8 @@ description: "Playbook for converting a copied casino-brand mockup in the ForgeX
 
 Reference frame: **EntrancePage / `breakpoint=desktop`** (node `168369:53998`) in "ForgeX | Library" (`natBqfvZvRAk2RrvPIpBmo`), brand **Dolly Casino**. This is the gold-standard to which other mockups in the file must be brought. Use this map + checklist to convert each new screen consistently.
 
+When a screen type isn't covered by the reference frame (or a block's pattern is unclear), consult **`mobbin-reference.md`** for real-world iGaming/casino references of that pattern before deciding the layout — then map onto ForgeX components as below. Extract structure only, never brand specifics.
+
 ## Block → DS component map (what each block must become)
 Replace any copied/raw block with the corresponding ForgeX `❖` component INSTANCE:
 

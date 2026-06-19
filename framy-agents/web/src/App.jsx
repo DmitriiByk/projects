@@ -4,8 +4,11 @@ import AgentCard from "./components/AgentCard.jsx";
 import RunPanel from "./components/RunPanel.jsx";
 import AddAgentModal from "./components/AddAgentModal.jsx";
 import ConnectorsView from "./components/ConnectorsView.jsx";
+import SkillsView from "./components/SkillsView.jsx";
+import { useI18n } from "./i18n.jsx";
 
 export default function App() {
+  const { t, lang, setLang, translate } = useI18n();
   const [view, setView] = useState("agents");
   const [agents, setAgents] = useState([]);
   const [health, setHealth] = useState(null);
@@ -38,6 +41,11 @@ export default function App() {
   }
 
   useEffect(() => { refresh(); }, []);
+
+  // Перевод описаний агентов при выборе русского.
+  useEffect(() => {
+    if (lang === "ru" && agents.length) translate(agents.map((a) => a.description)).catch(() => {});
+  }, [lang, agents]);
 
   function flash(msg) {
     setToast(msg);
@@ -96,26 +104,33 @@ export default function App() {
           </div>
           <div>
             <h1>Framy</h1>
-            <p>Панель управления сабагентами Claude Code</p>
+            <p>{t("subtitle")}</p>
           </div>
         </div>
         <div className="toolbar">
+          <div className="lang-switch" title="Language / Язык">
+            <button className={lang === "ru" ? "active" : ""} onClick={() => setLang("ru")}>RU</button>
+            <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>EN</button>
+          </div>
           <span className="status-pill">
             <span className={"dot " + (claudeAvailable ? "ok" : "bad")} />
-            CLI claude {claudeAvailable ? health?.claude?.version || "доступен" : "не найден"}
+            CLI claude {claudeAvailable ? health?.claude?.version || t("cliOk") : t("cliBad")}
           </span>
-          {view === "agents" && <button className="btn-ghost" onClick={refresh}>↻ Обновить</button>}
-          {view === "agents" && <button className="btn-primary" onClick={() => setShowAdd(true)}>＋ Добавить агента</button>}
+          {view === "agents" && <button className="btn-ghost" onClick={refresh}>{t("refresh")}</button>}
+          {view === "agents" && <button className="btn-primary" onClick={() => setShowAdd(true)}>{t("addAgent")}</button>}
         </div>
       </div>
 
       <div className="nav-tabs">
-        <button className={view === "agents" ? "active" : ""} onClick={() => setView("agents")}>Агенты</button>
-        <button className={view === "connectors" ? "active" : ""} onClick={() => setView("connectors")}>Коннекторы</button>
+        <button className={view === "agents" ? "active" : ""} onClick={() => setView("agents")}>{t("agents")}</button>
+        <button className={view === "skills" ? "active" : ""} onClick={() => setView("skills")}>{t("skills")}</button>
+        <button className={view === "connectors" ? "active" : ""} onClick={() => setView("connectors")}>{t("connectors")}</button>
       </div>
 
       {view === "connectors" ? (
         <ConnectorsView />
+      ) : view === "skills" ? (
+        <SkillsView />
       ) : (
       <>
       {error && <div className="banner error" style={{ marginTop: 18 }}>{error}</div>}
@@ -123,25 +138,25 @@ export default function App() {
 
       <div className="searchbar">
         <input
-          placeholder="Поиск по имени или описанию…"
+          placeholder={t("searchAgents")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <span className="status-pill">{filtered.length} агент(ов)</span>
+        <span className="status-pill">{filtered.length} {t("agentsCount")}</span>
       </div>
 
       {loading ? (
-        <div className="empty"><span className="spinner" /> Загрузка…</div>
+        <div className="empty"><span className="spinner" /> {t("loading")}</div>
       ) : filtered.length === 0 ? (
         <div className="empty">
           {agents.length === 0 ? (
             <>
-              <p style={{ fontSize: 16, marginTop: 0 }}>Агентов пока нет.</p>
-              <p>Создайте первого вручную, импортируйте из GitHub или вставьте markdown.</p>
-              <button className="btn-primary" onClick={() => setShowAdd(true)}>＋ Добавить агента</button>
+              <p style={{ fontSize: 16, marginTop: 0 }}>{t("emptyAgentsTitle")}</p>
+              <p>{t("emptyAgentsHint")}</p>
+              <button className="btn-primary" onClick={() => setShowAdd(true)}>{t("addAgent")}</button>
             </>
           ) : (
-            <p>Ничего не найдено по запросу «{query}».</p>
+            <p>{t("notFound")} «{query}».</p>
           )}
         </div>
       ) : (
@@ -160,7 +175,7 @@ export default function App() {
       )}
 
       <div className="footer-note">
-        Каталоги: {health?.agentDirs?.map((d) => <span className="mono" key={d}>{d}　</span>)}
+        {t("dirs")}: {health?.agentDirs?.map((dir) => <span className="mono" key={dir}>{dir}　</span>)}
       </div>
 
       {runAgent && (

@@ -23,6 +23,7 @@ function parseAgentFile(filePath, raw, scope) {
     id: `${scope}:${name}`,
     name,
     description: data.description || "",
+    descriptionRu: data.description_ru || data.descriptionRu || null,
     model: data.model || "inherit",
     tools: normalizeTools(data.tools),
     color: data.color || null,

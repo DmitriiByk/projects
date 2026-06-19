@@ -10,6 +10,9 @@ This is a **workflow index**, not a rulebook. It tells you what to read, in what
 ## Step 0 — Orient (always)
 Read `CLAUDE.md` read-order first: `doctrine/forgex_architectural_doctrine.md` (Rule 0) → `DESIGN_SYSTEM_GUIDE.md` → `tailwind.config.js` for real class names.
 
+## Step 0.5 — Ground in references (Mobbin)
+Before laying out a new screen/component, consult **`mobbin-reference.md`** — pull 3–5 real-world references for the pattern and extract the convention. References set the skeleton; ForgeX tokens set the finish. Skip only for trivial/utility components.
+
 ## Step 1 — Naming (separate source, do not absorb)
 All naming/casing/structure conventions live in **`DESIGN_SYSTEM_GUIDE.md §1`** (UpperCamelCase, dot-notation sub-components, `is/has/can` booleans, allowed variant tokens §1.4, slash-notation §1.5). Apply them from there. This skill never duplicates naming rules.
 
