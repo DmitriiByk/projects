@@ -31,7 +31,7 @@ export default function App() {
     try {
       const [h, a] = await Promise.all([api.health(), api.listAgents()]);
       setHealth(h);
-      setAgents(a.agents);
+      setAgents(Array.isArray(a?.agents) ? a.agents : []);
       setError("");
     } catch (e) {
       setError("Не удалось связаться с сервером: " + e.message + ". Запущен ли бэкенд (npm run dev)?");
@@ -44,7 +44,7 @@ export default function App() {
 
   // Перевод описаний агентов при выборе русского.
   useEffect(() => {
-    if (lang === "ru" && agents.length) translate(agents.map((a) => a.description)).catch(() => {});
+    if (lang === "ru" && agents?.length) translate(agents.map((a) => a.description)).catch(() => {});
   }, [lang, agents]);
 
   function flash(msg) {
@@ -75,10 +75,11 @@ export default function App() {
   }
 
   const filtered = useMemo(() => {
+    const list = Array.isArray(agents) ? agents : [];
     const q = query.trim().toLowerCase();
-    if (!q) return agents;
-    return agents.filter(
-      (a) => a.name.toLowerCase().includes(q) || a.description.toLowerCase().includes(q)
+    if (!q) return list;
+    return list.filter(
+      (a) => (a.name || "").toLowerCase().includes(q) || (a.description || "").toLowerCase().includes(q)
     );
   }, [agents, query]);
 

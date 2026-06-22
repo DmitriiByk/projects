@@ -16,8 +16,8 @@ export default function ConnectorsView() {
     setLoading(true);
     try {
       const res = await api.listConnectors();
-      setSources(res.sources);
-      setTargets(res.targets);
+      setSources(Array.isArray(res?.sources) ? res.sources : []);
+      setTargets(Array.isArray(res?.targets) ? res.targets : []);
       setError("");
     } catch (e) {
       setError(e.message);

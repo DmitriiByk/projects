@@ -211,3 +211,44 @@ select:focus { border-color: rgba(79, 139, 255, 0.6); }
   color: var(--muted); background: transparent; letter-spacing: 0.02em;
 }
 .lang-switch button.active { background: #fff; color: #0a0d16; }
+
+/* === Иконка-карандаш на карточке скилла === */
+.icon-edit {
+  background: rgba(255, 255, 255, 0.08); color: var(--muted); border-radius: 8px;
+  width: 30px; height: 28px; padding: 0; font-size: 14px;
+}
+.icon-edit:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
+
+/* === Редактор скилла === */
+.editor-modal { width: min(1120px, 100%); display: flex; flex-direction: column; max-height: 90vh; }
+.editor-body { display: flex; gap: 0; flex: 1; min-height: 0; }
+.editor-pane { flex: 1.3; min-width: 0; padding: 18px; overflow: auto; border-right: 1px solid var(--border); }
+.assist-pane { width: 340px; flex: none; padding: 18px; display: flex; flex-direction: column; }
+.editor-text {
+  width: 100%; min-height: 52vh; height: 100%; resize: none; border: 1px solid var(--border);
+  background: #05070e; color: #cdd5e3; border-radius: 12px; padding: 14px;
+  font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; line-height: 1.6; outline: none;
+}
+.editor-text:focus { border-color: rgba(79, 139, 255, 0.6); }
+.diff-view {
+  background: #05070e; border: 1px solid var(--border); border-radius: 12px; padding: 10px 0;
+  font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; line-height: 1.55; overflow: auto; max-height: 60vh;
+}
+.diff-line { padding: 0 12px; white-space: pre-wrap; word-break: break-word; color: #aab3c5; }
+.diff-line .diff-gutter { display: inline-block; width: 14px; color: var(--muted); user-select: none; }
+.diff-line.add { background: rgba(47, 208, 122, 0.14); color: #b7f0cf; }
+.diff-line.del { background: rgba(255, 92, 92, 0.14); color: #ffc0c0; }
+
+.assist-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.assist-hint { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.45; }
+.assist-input {
+  width: 100%; min-height: 120px; resize: vertical; border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06); color: var(--text); border-radius: 12px; padding: 12px;
+  font-family: inherit; font-size: 13.5px; outline: none; margin-bottom: 10px;
+}
+.assist-input:focus { border-color: rgba(79, 139, 255, 0.6); }
+.assist-proposal { margin-top: 4px; }
+.editor-foot {
+  display: flex; align-items: center; gap: 10px; padding: 16px 22px;
+  border-top: 1px solid var(--border); background: #121521;
+}

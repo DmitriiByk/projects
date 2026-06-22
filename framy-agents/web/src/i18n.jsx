@@ -91,4 +91,16 @@ export function I18nProvider({ children }) {
   );
 }
 
-export const useI18n = () => useContext(Ctx);
+// Безопасный фолбэк — если по какой-то причине провайдер не обёрнут (кэш, HMR),
+// хук не уронит рендер, а вернёт рабочий минимум (английские строки).
+const FALLBACK = {
+  lang: "en",
+  setLang: () => {},
+  t: (k) => (STRINGS.en[k] || k),
+  d: (text) => text || "",
+  translate: async () => ({ translated: 0 }),
+  translating: false,
+  hasTranslations: false,
+};
+
+export const useI18n = () => useContext(Ctx) || FALLBACK;

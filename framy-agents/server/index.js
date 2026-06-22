@@ -17,7 +17,7 @@ import { getAgentDirs, MODEL_PRESETS } from "./config.js";
 import { listConnectors, upsertConnector, deleteConnector, configSources, getConnectorRaw } from "./connectors.js";
 import { listTools, callTool } from "./mcpClient.js";
 import { getMcpToken } from "./claudeCreds.js";
-import { listSkills } from "./skills.js";
+import { listSkills, readSkillContent, saveSkillContent, assistSkill } from "./skills.js";
 import { translateItems } from "./translate.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -109,6 +109,19 @@ app.post("/api/import/github", wrap(async (req, res) => {
 // --- Скиллы ---
 app.get("/api/skills", wrap(async (req, res) => {
   res.json({ skills: await listSkills() });
+}));
+
+app.get("/api/skills/:id/content", wrap(async (req, res) => {
+  res.json(await readSkillContent(decodeURIComponent(req.params.id)));
+}));
+
+app.put("/api/skills/:id/content", wrap(async (req, res) => {
+  res.json(await saveSkillContent(decodeURIComponent(req.params.id), (req.body || {}).content));
+}));
+
+app.post("/api/skills/:id/assist", wrap(async (req, res) => {
+  const { content, request } = req.body || {};
+  res.json(await assistSkill({ content, request }));
 }));
 
 // --- Автоперевод описаний (через claude CLI, с кэшем) ---

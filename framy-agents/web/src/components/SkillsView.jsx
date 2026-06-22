@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { api } from "../api.js";
 import { useI18n } from "../i18n.jsx";
+import SkillEditorModal from "./SkillEditorModal.jsx";
 
 const SCOPE_KEY = { user: "scopeUser", project: "scopeProject", workflow: "scopeWorkflow", custom: "scopeCustom" };
 const COLORS = ["#2f6bff", "#4ade80", "#c084fc", "#f59e0b", "#f472b6", "#22d3ee"];
@@ -14,10 +15,12 @@ export default function SkillsView() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
+  const [editing, setEditing] = useState(null);
+  const [toast, setToast] = useState("");
 
   async function refresh() {
     setLoading(true);
-    try { const res = await api.listSkills(); setSkills(res.skills); setError(""); }
+    try { const res = await api.listSkills(); setSkills(Array.isArray(res?.skills) ? res.skills : []); setError(""); }
     catch (e) { setError(e.message); }
     finally { setLoading(false); }
   }
@@ -34,9 +37,12 @@ export default function SkillsView() {
     return skills.filter((s) => s.name.toLowerCase().includes(q) || (s.description || "").toLowerCase().includes(q));
   }, [skills, query]);
 
+  function flash(m) { setToast(m); setTimeout(() => setToast(""), 5000); }
+
   return (
     <div>
       {error && <div className="banner error" style={{ marginTop: 18 }}>{error}</div>}
+      {toast && <div className="banner info" style={{ marginTop: 18 }}>{toast}</div>}
 
       <div className="searchbar">
         <input placeholder={t("searchSkills")} value={query} onChange={(e) => setQuery(e.target.value)} />
@@ -53,7 +59,10 @@ export default function SkillsView() {
             <div className="card" key={s.id} style={{ "--bar": barColor(s.name) }}>
               <div className="card-head">
                 <h3>{s.name}</h3>
-                <span className="scope-tag">{t(SCOPE_KEY[s.source] || "scopeCustom")}</span>
+                <div className="row" style={{ gap: 8 }}>
+                  <span className="scope-tag">{t(SCOPE_KEY[s.source] || "scopeCustom")}</span>
+                  <button className="icon-edit" title="Редактировать" onClick={() => setEditing(s)}>✎</button>
+                </div>
               </div>
               <p className="desc" style={{ WebkitLineClamp: 4 }}>
                 {d(s.description, s.descriptionRu) || t("noDesc")}
@@ -61,6 +70,14 @@ export default function SkillsView() {
             </div>
           ))}
         </div>
+      )}
+
+      {editing && (
+        <SkillEditorModal
+          skill={editing}
+          onClose={() => setEditing(null)}
+          onSaved={(msg) => { setEditing(null); flash(msg); refresh(); }}
+        />
       )}
     </div>
   );
