@@ -107,8 +107,10 @@ button:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
 .field-label { font-size: 12px; color: var(--muted); margin-bottom: 7px; display: block; }
 select {
   appearance: none; background: rgba(255, 255, 255, 0.06); color: var(--text);
-  border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 15px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 38px 12px 15px;
   font-size: 14px; font-family: inherit; cursor: pointer; outline: none; width: 100%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2397a0b2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat; background-position: right 13px center;
 }
 select:focus { border-color: rgba(79, 139, 255, 0.6); }
 

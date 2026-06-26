@@ -5,6 +5,7 @@ import RunPanel from "./components/RunPanel.jsx";
 import AddAgentModal from "./components/AddAgentModal.jsx";
 import ConnectorsView from "./components/ConnectorsView.jsx";
 import SkillsView from "./components/SkillsView.jsx";
+import ImageGenerator from "./components/ImageGenerator.jsx";
 import { useI18n } from "./i18n.jsx";
 
 export default function App() {
@@ -126,12 +127,15 @@ export default function App() {
         <button className={view === "agents" ? "active" : ""} onClick={() => setView("agents")}>{t("agents")}</button>
         <button className={view === "skills" ? "active" : ""} onClick={() => setView("skills")}>{t("skills")}</button>
         <button className={view === "connectors" ? "active" : ""} onClick={() => setView("connectors")}>{t("connectors")}</button>
+        <button className={view === "images" ? "active" : ""} onClick={() => setView("images")}>{t("images")}</button>
       </div>
 
       {view === "connectors" ? (
         <ConnectorsView />
       ) : view === "skills" ? (
         <SkillsView />
+      ) : view === "images" ? (
+        <div style={{ marginTop: 18 }}><ImageGenerator /></div>
       ) : (
       <>
       {error && <div className="banner error" style={{ marginTop: 18 }}>{error}</div>}

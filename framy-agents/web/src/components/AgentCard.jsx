@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useI18n } from "../i18n.jsx";
+import ImageGenModal from "./ImageGenModal.jsx";
 
 const SCOPE_KEY = { user: "scopeUser", project: "scopeProject", custom: "scopeCustom" };
 const COLORS = ["#d97757", "#6ea8fe", "#4ade80", "#c084fc", "#f59e0b", "#f472b6"];
@@ -15,6 +16,7 @@ export default function AgentCard({ agent, models, onModelChange, onRun, onDelet
   const { t, d } = useI18n();
   const [model, setModel] = useState(agent.model || "inherit");
   const [saving, setSaving] = useState(false);
+  const [cover, setCover] = useState(false);
 
   async function changeModel(next) {
     setModel(next);
@@ -33,8 +35,19 @@ export default function AgentCard({ agent, models, onModelChange, onRun, onDelet
     <div className="card" style={{ "--bar": barColor(agent) }}>
       <div className="card-head">
         <h3>{agent.name}</h3>
-        <span className="scope-tag">{t(SCOPE_KEY[agent.scope] || "scopeCustom")}</span>
+        <div className="row" style={{ gap: 8 }}>
+          <span className="scope-tag">{t(SCOPE_KEY[agent.scope] || "scopeCustom")}</span>
+          <button className="icon-edit" title="Сгенерировать обложку" onClick={() => setCover(true)}>🖼</button>
+        </div>
       </div>
+
+      {cover && (
+        <ImageGenModal
+          title={agent.name}
+          initialPrompt={`App cover / icon art for a Claude Code subagent called "${agent.name}". ${agent.description || ""} Clean, modern, flat style. No text.`}
+          onClose={() => setCover(false)}
+        />
+      )}
 
       <p className="desc">{d(agent.description, agent.descriptionRu) || t("noDesc")}</p>
 

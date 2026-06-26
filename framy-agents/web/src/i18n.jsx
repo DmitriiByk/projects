@@ -4,7 +4,7 @@ import { api } from "./api.js";
 const STRINGS = {
   ru: {
     subtitle: "Панель управления сабагентами Claude Code",
-    agents: "Агенты", skills: "Скиллы", connectors: "Коннекторы",
+    agents: "Агенты", skills: "Скиллы", connectors: "Коннекторы", images: "Картинки",
     refresh: "↻ Обновить", addAgent: "＋ Добавить агента",
     searchAgents: "Поиск по имени или описанию…",
     agentsCount: "агент(ов)", skillsCount: "скилл(ов)",
@@ -26,7 +26,7 @@ const STRINGS = {
   },
   en: {
     subtitle: "Claude Code subagents control panel",
-    agents: "Agents", skills: "Skills", connectors: "Connectors",
+    agents: "Agents", skills: "Skills", connectors: "Connectors", images: "Images",
     refresh: "↻ Refresh", addAgent: "＋ Add agent",
     searchAgents: "Search by name or description…",
     agentsCount: "agent(s)", skillsCount: "skill(s)",

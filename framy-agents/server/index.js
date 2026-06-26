@@ -19,6 +19,8 @@ import { listTools, callTool } from "./mcpClient.js";
 import { getMcpToken } from "./claudeCreds.js";
 import { listSkills, readSkillContent, saveSkillContent, assistSkill } from "./skills.js";
 import { translateItems } from "./translate.js";
+import { imageStatus, generateImage, saveImage } from "./imagegen.js";
+import { generateViaFlowra, flowraLimit } from "./flowra.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -40,7 +42,7 @@ app.use((req, res, next) => {
   if (req.method === "OPTIONS") return res.sendStatus(204);
   next();
 });
-app.use(express.json({ limit: "2mb" }));
+app.use(express.json({ limit: "30mb" }));
 
 const wrap = (fn) => (req, res) => fn(req, res).catch((err) => {
   res.status(err.status || 500).json({ error: err.message || "Внутренняя ошибка" });
@@ -122,6 +124,27 @@ app.put("/api/skills/:id/content", wrap(async (req, res) => {
 app.post("/api/skills/:id/assist", wrap(async (req, res) => {
   const { content, request } = req.body || {};
   res.json(await assistSkill({ content, request }));
+}));
+
+// --- Генерация картинок (Gemini / Nano Banana) ---
+app.get("/api/image/status", wrap(async (req, res) => {
+  const st = imageStatus();
+  if (st.backend === "flowra") st.limit = await flowraLimit();
+  res.json(st);
+}));
+
+app.post("/api/image/generate", wrap(async (req, res) => {
+  const { prompt, refImage, refMime, save, name, model, backend, aspectRatio, resolution } = req.body || {};
+  const use = backend || imageStatus().backend;
+  let gen;
+  if (use === "flowra") {
+    gen = await generateViaFlowra({ prompt, aspectRatio, resolution });
+  } else {
+    gen = await generateImage({ prompt, refImage, refMime, model });
+  }
+  let savedPath = null;
+  if (save && gen.image) savedPath = await saveImage(gen.image, gen.mime || "image/jpeg", name || prompt);
+  res.json({ ...gen, savedPath });
 }));
 
 // --- Автоперевод описаний (через claude CLI, с кэшем) ---

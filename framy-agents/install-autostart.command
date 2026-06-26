@@ -37,6 +37,8 @@ cat > "$PLIST" <<EOF
     <key>FRAMY_CLAUDE_BIN</key><string>${CLAUDE_BIN}</string>
     <key>FRAMY_PROJECT_DIR</key><string>${FRAMY_PROJECT}</string>
     <key>FRAMY_SKILL_MD_DIRS</key><string>${FRAMY_PROJECT}</string>
+    <key>GEMINI_API_KEY</key><string>${GEMINI_API_KEY}</string>
+    <key>FRAMY_GEMINI_MODEL</key><string>${FRAMY_GEMINI_MODEL}</string>
   </dict>
   <key>RunAtLoad</key><true/>
   <key>KeepAlive</key><true/>

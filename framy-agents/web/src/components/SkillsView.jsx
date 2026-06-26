@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { api } from "../api.js";
 import { useI18n } from "../i18n.jsx";
 import SkillEditorModal from "./SkillEditorModal.jsx";
+import ImageGenModal from "./ImageGenModal.jsx";
 
 const SCOPE_KEY = { user: "scopeUser", project: "scopeProject", workflow: "scopeWorkflow", custom: "scopeCustom" };
 const COLORS = ["#2f6bff", "#4ade80", "#c084fc", "#f59e0b", "#f472b6", "#22d3ee"];
@@ -16,6 +17,7 @@ export default function SkillsView() {
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState(null);
+  const [cover, setCover] = useState(null);
   const [toast, setToast] = useState("");
 
   async function refresh() {
@@ -61,6 +63,7 @@ export default function SkillsView() {
                 <h3>{s.name}</h3>
                 <div className="row" style={{ gap: 8 }}>
                   <span className="scope-tag">{t(SCOPE_KEY[s.source] || "scopeCustom")}</span>
+                  <button className="icon-edit" title="Сгенерировать обложку" onClick={() => setCover(s)}>🖼</button>
                   <button className="icon-edit" title="Редактировать" onClick={() => setEditing(s)}>✎</button>
                 </div>
               </div>
@@ -77,6 +80,14 @@ export default function SkillsView() {
           skill={editing}
           onClose={() => setEditing(null)}
           onSaved={(msg) => { setEditing(null); flash(msg); refresh(); }}
+        />
+      )}
+
+      {cover && (
+        <ImageGenModal
+          title={cover.name}
+          initialPrompt={`App cover / icon art for a developer tool called "${cover.name}". ${cover.description || ""} Clean, modern, flat style, on-brand for a dev dashboard. No text.`}
+          onClose={() => setCover(null)}
         />
       )}
     </div>
