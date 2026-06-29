@@ -58,6 +58,13 @@ const crop=(L,cw)=>({type:"IMAGE",scaleMode:"CROP",imageHash:IH,imageTransform:[
 ```js
 oR.relativeTransform=[[-1,0,rx+62],[0,1,0]]; // rx — левый x места правого орнамента
 ```
+ВАЖНО (углы + респонсив): `relativeTransform`-зеркало КОНФЛИКТУЕТ с `constraints` (зеркальная нода
+не пинится к MAX-краю при ресайзе). Для 4 угловых ассетов, которые должны держаться по углам при
+растяжении, зеркаль ВНУТРИ SVG (`createNodeFromSvg`) через `<g transform="translate(W,0) scale(-1,1)">`
+— нода остаётся НЕ-трансформированной (обычный фрейм), поэтому `constraints:MIN/MAX` работают штатно.
+4 угла: TL `""`, TR `translate(40,0) scale(-1,1)`, BL `translate(0,40) scale(1,-1)`, BR `translate(40,40) scale(-1,-1)`.
+Тени направленно: верхние вниз (0,+1), нижние вверх (0,−1). (Минус: вертикальный флип переворачивает и
+градиент освещения — для мелких углов терпимо; для крупных давай градиент в objectBoundingBox или рисуй 2 версии.)
 
 ## Состояния → компонент-сет (T14)
 ```js
@@ -124,6 +131,35 @@ try{ await def.setReactionsAsync([react]); }catch(e){ def.reactions=[{trigger:{t
   (светлый сверху, тёмный снизу = фаска) → камень-rect инсетом ~4 (`constraints:STRETCH`,
   TILE-заливка, тонкий тёмный stroke + INNER_SHADOW для «вдавленности») → на компоненте внешняя
   DROP_SHADOW (отрыв). Инстансы на 2 ширины показывают, что плитка не тянется.
+
+## Вогнутые угловые вырезы через boolean (T16)
+Острые углы (r=0). Вырез = rect МИНУS union из 4 эллипсов, центрированных на углах. Заливку/эффекты —
+на узел boolean-результата. У каждого Z-слоя свой размер резаков (кант меньше, лицо крупнее) = ступенчатая глубина.
+```js
+function cut(rx,ry,w,h,D,fills,fx){          // вырезать углы у прямоугольника
+  const rect=figma.createRectangle(); rect.x=rx; rect.y=ry; rect.resize(w,h); rect.cornerRadius=0; rect.fills=fills; comp.appendChild(rect);
+  const corners=[[rx,ry],[rx+w,ry],[rx,ry+h],[rx+w,ry+h]];
+  const els=corners.map(([cx,cy])=>{ const e=figma.createEllipse(); e.resize(D,D); e.x=cx-D/2; e.y=cy-D/2; e.fills=[solid("#000")]; comp.appendChild(e); return e; }); // центр строго на углу
+  const sub=figma.subtract([rect, figma.union(els,comp)], comp);  // rect минус объединение
+  sub.fills=fills; sub.effects=fx; return sub;
+}
+// КАНТ (низ, утоплен): полный размер, stone+тёмный тинт, мелкие резаки D=16, INNER_SHADOW
+const rim=cut(0,0,W,H,16,[stone(1.4),solid("#000",0.42)],[innerShadow]);
+// ЛИЦО (верх, приподнято): инсет 4, stone, КРУПНЫЕ резаки D=24, DROP_SHADOW вниз + светлый INNER_SHADOW сверху
+const face=cut(4,4,W-8,H-8,24,[stone(1.4)],[dropShadow, innerHighlight]);
+```
+Грабли: эффекты на детях boolean не видны — вешать на результат; `figma.subtract([base, cutter])` — первый минус остальные.
+КОНЦЕНТРИЧНОСТЬ (ровный кант): резаки соседних слоёв в ОДНОМ центре (угол ПАНЕЛИ), радиусы r и r+B
+(B=ширина канта). Не центрируй резак инсетнутого слоя в его собственном углу — кант в углу станет шире.
+РЕСПОНСИВ: у `BOOLEAN_OPERATION` нет `constraints` → нельзя растянуть. Делай горизонтальный 3-слайс:
+```js
+comp.layoutMode="HORIZONTAL"; comp.primaryAxisSizingMode="FIXED"; comp.counterAxisSizingMode="FIXED";
+// capL (FIXED, CAP≥Ro+B): cutRect TL[0,0,Ro]/BL[0,H,Ro] + face TL[0,0,Ro+B]/BL[0,H,Ro+B]
+// mid  (FILL): обычные rect rim/face с constraints STRETCH, БЕЗ углов
+// capR (FIXED): cuts в (CAP,0)/(CAP,H)
+capL.layoutSizingHorizontal="FIXED"; mid.layoutSizingHorizontal="FILL"; capR.layoutSizingHorizontal="FIXED";
+```
+Одинаковые эффекты во всех секциях → швы кап|центр незаметны на камне.
 
 ## Текстура из фигур (T15)
 Сгенерь сетку фигур SVG и импортируй: `figma.createNodeFromSvg('<svg ...><g fill="#..">'+circles+'</g></svg>')`.
