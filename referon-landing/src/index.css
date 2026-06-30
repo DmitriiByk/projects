@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Instrument Sans", sans-serif;
+  --font-ui: "Plus Jakarta Sans", sans-serif;
+  --font-mono-ui: "Inter", sans-serif;
+
+  --color-navy-900: #10132d;
+  --color-navy-800: #161b40;
+  --color-indigo-700: #353989;
+  --color-indigo-600: #4a4ebd;
+  --color-indigo-500: #595cd8;
+  --color-ink: #131313;
+  --color-orange-500: #fb6000;
+  --color-orange-400: #ff7900;
+  --color-orange-glow: #fa8321;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #05060f;
+}
+
+/* Framer Motion measures scroll offsets against the scroll root;
+   a non-static position keeps that calculation correct. */
+html {
+  position: relative;
+}
+
+body {
+  position: relative;
+  font-family: var(--font-ui);
+  /* Ambient backdrop behind the centered mobile frame (desktop viewing) */
+  background:
+    radial-gradient(900px 600px at 20% -5%, rgba(74, 78, 189, 0.35), transparent 60%),
+    radial-gradient(800px 700px at 100% 10%, rgba(251, 96, 0, 0.12), transparent 55%),
+    radial-gradient(1000px 900px at 50% 110%, rgba(53, 57, 137, 0.4), transparent 60%),
+    #05060f;
+  min-height: 100vh;
+}
+
+/* ---------- Smooth scroll (Lenis) ---------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ---------- The 440px mobile frame ---------- */
+.device {
+  width: 440px;
+  max-width: 100vw;
+  margin: 0 auto;
+  position: relative;
+  /* clip horizontal bleed (wide mockups, gallery track) WITHOUT creating a
+     scroll container — keeps position:sticky pinning working for the gallery */
+  overflow-x: clip;
+  overflow-y: visible;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 40px 120px -20px rgba(0, 0, 0, 0.7),
+    0 0 140px -40px rgba(74, 78, 189, 0.6);
+}
+
+/* ---------- Glossy / neumorphic orange button ---------- */
+.glossy-orange {
+  position: relative;
+  background: linear-gradient(90deg, #fb6000, #d44e05);
+  box-shadow:
+    inset 1px 2px 2px 0 #feb97c,
+    inset -1px -1px 5px 0 #ae470f,
+    0 3px 2.5px rgba(0, 0, 0, 0.1);
+  isolation: isolate;
+}
+.glossy-orange::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #fa6404, #fa8321);
+  box-shadow:
+    inset 3px 6px 12px -6px #ffc9a0,
+    inset -1px -1px 5px 0 #8f2008;
+  filter: blur(0.4px);
+  z-index: -1;
+}
+
+.glossy-indigo {
+  position: relative;
+  background: linear-gradient(90deg, #595cd8, #2f3bb9);
+  box-shadow:
+    inset 1px 2px 2px 0 #c3beff,
+    inset -1px -1px 5px 0 #162c7a;
+}
+
+/* round icon chips inside buttons */
+.chip-orange {
+  background: linear-gradient(90deg, #fb6000, #992307);
+  box-shadow: inset 1px 2px 2px -6px #ffc9a0, inset -1px -1px 5px 0 #ae470f;
+}
+.chip-indigo {
+  background: linear-gradient(90deg, #5559d5, #343fb9);
+  box-shadow: inset 1px 2px 2px -6px #a2a1ef, inset -1px -1px 5px 0 #13184e;
+}
+
+/* ---------- Animated aurora gradient (hero) ---------- */
+.aurora {
+  position: absolute;
+  inset: -30% -30% auto -30%;
+  height: 160%;
+  filter: blur(60px);
+  opacity: 0.9;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 40% at 30% 30%, rgba(89, 92, 216, 0.9), transparent 70%),
+    radial-gradient(35% 35% at 75% 25%, rgba(74, 78, 189, 0.85), transparent 70%),
+    radial-gradient(45% 45% at 60% 60%, rgba(53, 57, 137, 0.9), transparent 70%);
+  background-size: 200% 200%;
+  animation: aurora-drift 18s ease-in-out infinite alternate;
+  /* fade out toward the bottom so it never hard-clips at a section seam */
+  -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 82%);
+  mask-image: linear-gradient(to bottom, #000 50%, transparent 82%);
+}
+@keyframes aurora-drift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    background-position: 100% 50%, 0% 60%, 40% 0%;
+    transform: translateY(-3%) scale(1.08);
+  }
+}
+
+/* faint grain so the gradients don't band */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ---------- Infinite logo marquee ---------- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* second marquee row, reversed */
+.marquee-track.reverse {
+  animation-direction: reverse;
+  animation-duration: 28s;
+}
+
+/* ---------- Gradient hairline border (mask technique) ---------- */
+.grad-border {
+  position: relative;
+}
+.grad-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    var(--gb-from, rgba(255, 255, 255, 0.95)),
+    var(--gb-via, rgba(255, 255, 255, 0.25)) 45%,
+    var(--gb-to, rgba(255, 255, 255, 0.06))
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ---------- Animated sheen sweep (dark panels) ---------- */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  top: -25%;
+  left: -60%;
+  width: 45%;
+  height: 150%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255, 255, 255, 0.16),
+    transparent
+  );
+  transform: skewX(-16deg);
+  animation: sheen 7s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%,
+  55% {
+    left: -60%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+/* ---------- Gradient beam divider ---------- */
+.beam {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(89, 92, 216, 0.5) 35%,
+    rgba(251, 96, 0, 0.55) 65%,
+    transparent
+  );
+}
+
+/* ---------- Conic glow used behind blocks ---------- */
+.conic-glow {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(89, 92, 216, 0.35),
+    rgba(251, 96, 0, 0.28),
+    rgba(74, 78, 189, 0.35),
+    rgba(89, 92, 216, 0.35)
+  );
+  animation: spin-slow 26s linear infinite;
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* soft drifting blobs */
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(14px, -18px) scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora,
+  .marquee-track,
+  .sheen::after,
+  .conic-glow {
+    animation: none !important;
+  }
+}

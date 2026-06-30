@@ -1,0 +1,26 @@
+{
+  "component": "Button",
+  "file": "wXVTATgCimvirF9shAwk39 (clean baseline)",
+  "variantId": "77:35600",
+  "variant": "variant=primary, size=md, state=default",
+  "layer_count": 12,
+  "flags": {
+    "is_three_slice": false,
+    "is_angled_shape": false,
+    "is_raster_bg": false,
+    "has_texture_overlay": false,
+    "has_gradient_sheen": false,
+    "has_inner_shadow": false,
+    "has_lift_shadow": false,
+    "has_fx_blend_layer": false,
+    "has_ornament_vector": true,
+    "has_mask": true,
+    "is_pill": false,
+    "material": "flat"
+  },
+  "reuse_candidates": [
+    { "name": "variant=mask", "count": 2 },
+    { "name": "Icon/DataAdd", "count": 2 }
+  ],
+  "note": "Чистый baseline: плоский, без декора (контраст со стилизованным файлом, где тот же узел = металл 3-слайс + текстура). has_mask/ornament — иконные слоты."
+}

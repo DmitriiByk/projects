@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "concept": "Dragonia",
+    "source": "Hb9oQuKcxtG0DjOywndwA4",
+    "baseline": "wXVTATgCimvirF9shAwk39",
+    "kind": "decoration-delta (theme override) — обратная разработка из готового концепта",
+    "doctrine": "оверрайд, НЕ запекать в build-tokens.js/tailwind.config.js (Path B запрещён)",
+    "method": "dumpSignals(concept) − dumpSignals(baseline) по представителю md/default"
+  },
+  "decoration_language": {
+    "primary_surfaces": "3-слайс (part=Left/Middle/right, T1) + металл-градиент (T8) + тень-отрыв (T11); материал raster/metallic",
+    "input_fields": "inner-shadow (вдавленность), инверсия объёма",
+    "small_elements": "плоские (chip/callout) — де-акцент только палитрой",
+    "notes": "текстура/скос (T7/T9-skew) в Dragonia-компонентах не используются (это почерк Vegas Hero)"
+  },
+  "per_component_delta": {
+    "Button":  { "add": ["three_slice","raster_base","gradient_sheen","lift_shadow"], "techniques": ["T1","T8","T11"], "reuse": ["part=Left/Middle/right","deposit"] },
+    "ProgressBar": { "add": ["raster_fill","lift_shadow"], "techniques": ["T11"], "reuse": ["Layer=Outside","Layer=Inside"] },
+    "MainBanner": { "add": ["gradient_sheen"], "techniques": ["T8"], "contains": "3-slice button (part=Left/Middle/right)" },
+    "Input":   { "add": ["inner_shadow"], "techniques": ["T11-inv"], "note": "recessed field" },
+    "SpecialPromotionBanner": { "add": ["raster_bg"], "techniques": ["T2"] },
+    "Badge":   { "add": ["lift_shadow"], "techniques": ["T11"] },
+    "GameCard":{ "add": ["raster_art_slot"], "note": "color-варианты; структура иная" },
+    "Chip":    { "add": [], "note": "без изменений" },
+    "Callout": { "add": [], "note": "без изменений" },
+    "GameBanner": { "removed": true, "note": "компонент удалён в концепте" }
+  }
+}

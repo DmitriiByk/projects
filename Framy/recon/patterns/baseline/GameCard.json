@@ -1,0 +1,25 @@
+{
+  "component": "GameCard",
+  "file": "wXVTATgCimvirF9shAwk39 (clean baseline)",
+  "variantId": "23705:90697",
+  "variant": "size=sm, ratio=2:3",
+  "layer_count": 2,
+  "flags": {
+    "is_three_slice": false,
+    "is_angled_shape": false,
+    "is_raster_bg": true,
+    "has_texture_overlay": false,
+    "has_gradient_sheen": false,
+    "has_inner_shadow": false,
+    "has_lift_shadow": false,
+    "has_fx_blend_layer": false,
+    "has_ornament_vector": false,
+    "has_mask": false,
+    "is_pill": false,
+    "material": "raster"
+  },
+  "reuse_candidates": [
+    { "name": "variant=01", "count": 1 }
+  ],
+  "note": "Тонкая обёртка (L3): реальный декор в мастере variant=01 — нужен follow-into-main для полного профиля. is_raster_bg = слот игрового арта."
+}

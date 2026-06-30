@@ -1,0 +1,109 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>EntrancePage — структура (Dragonia)</title>
+<style>
+  body{font:14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;max-width:920px;margin:24px auto;padding:0 16px;color:#16201c;background:#fafafa}
+  h1{font-size:20px} h2{font-size:16px;margin-top:28px;border-bottom:1px solid #ddd;padding-bottom:4px}
+  details{margin:3px 0 3px 0;padding-left:6px;border-left:2px solid #e3e3e3}
+  details>summary{cursor:pointer;padding:3px 0;font-weight:600}
+  details details{margin-left:16px;border-left:2px solid #eee}
+  .leaf{margin:2px 0 2px 18px;color:#444}
+  .hc{color:#06b204;font-weight:700}
+  .lc{color:#ff8a05}
+  .mc{color:#777;font-weight:400;font-size:12px}
+  .count{color:#999;font-size:12px}
+  .tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  .tag-hc{background:#e6f7e6;color:#06b204;border:1px solid #06b204}
+  .tag-lc{background:#fff1e0;color:#ff8a05;border:1px solid #ffce99}
+  .note{background:#fff;border:1px solid #e3e3e3;border-radius:8px;padding:10px 14px;margin:10px 0}
+  ul{margin:6px 0}
+</style>
+
+<h1>EntrancePage — структура · Dragonia</h1>
+<div class="note">
+Вариант: <b>BaseEntrancePage / Logged · breakpoint=desktop</b> (file <code>Hb9oQuKcxtG0DjOywndwA4</code>).<br>
+Каркас: <b>Layout</b> (Header · Subheader · Footer · Drawer) оборачивает контент-слот <b>Main</b>, в котором лежат <b>18 секций</b> страницы.<br>
+Каждая секция: <code>Section/… → Container(SLOT) → реальный блок</code>. Ниже раскрыта внутрянка по типам блоков (Games-секции идентичны — показаны на примере TopGames).
+<span class="tag tag-hc">High-Custom</span> = декор, стилизуется свободно; <span class="tag tag-lc">Low-Custom</span> = только переменные.
+</div>
+
+<h2>Каркас Layout (обёртка экрана)</h2>
+<details><summary>Layout <span class="mc">(breakpoint=desktop)</span></summary>
+  <div class="leaf">Header / Subheader <span class="tag tag-lc">Low</span></div>
+  <div class="leaf">Drawer (боковое меню) <span class="tag tag-lc">Low</span></div>
+  <div class="leaf">Footer <span class="tag tag-lc">Low</span></div>
+  <details><summary>Body → Mainbar → Content → <b>Main</b> (SLOT, 18 секций)</summary>
+    <div class="leaf">Layout.Main.Background <span class="tag tag-hc">High</span> <span class="mc">— фон страницы (арт/паттерн)</span></div>
+    <div class="leaf">↓ 18 секций — ниже</div>
+  </details>
+</details>
+
+<h2>Main — 18 секций EntrancePage</h2>
+
+<details open><summary>1 · Section/Banner/MainBanner <span class="tag tag-hc">High</span></summary>
+  <details><summary>MainBanner/Static</summary>
+    <div class="leaf">MainBanner.Art → Image + ArtGuide (Guide.Area ×4) <span class="tag tag-hc">High</span></div>
+    <details><summary>Body / Col</summary>
+      <div class="leaf">Row/Overline · Row/Title <span class="tag tag-lc">Low</span></div>
+      <div class="leaf">Row/Button → <b>Button</b> (size=lg) <span class="tag tag-hc">High</span></div>
+    </details>
+  </details>
+</details>
+
+<details><summary>2 · Section/CategoryMenu <span class="tag tag-hc">High</span></summary>
+  <details><summary>Categories (variant=tiles)</summary>
+    <div class="leaf">BG-casino-categories <span class="tag tag-hc">High</span> <span class="mc">— декоративный фон</span></div>
+    <div class="leaf">Item / General Categories (Icon=Providers, …) <span class="tag tag-lc">Low</span></div>
+  </details>
+</details>
+
+<details><summary>3–18 · Section/Games/* — <b>13 игровых слайдеров</b> <span class="count">(одинаковая структура)</span></summary>
+  <div class="note">Favourite · TopGames · New · Popular · Exclusive · BigWins · TopRated · Roulette · GameShows · Blackjack · HotJackpots · Slots · AllGames</div>
+  <details open><summary>Block/Games/* → <b>CardSlider</b> <span class="tag tag-lc">Low</span> <span class="mc">(оболочка)</span></summary>
+    <details><summary>Header → Headline <span class="tag tag-lc">Low</span></summary>
+      <div class="leaf">Divider <span class="tag tag-lc">Low</span></div>
+      <div class="leaf">Headline.Controls.ActionButton <span class="tag tag-lc">Low</span></div>
+      <div class="leaf">SliderButtons → SliderButton ×2 (default/disabled) <span class="tag tag-lc">Low</span></div>
+    </details>
+    <details><summary>Body → <b>GameCard</b> ×N (GameCard/TopGames) <span class="tag tag-hc">High</span></summary>
+      <div class="leaf">Col/Number (рейтинг-номер) · Col/Body (арт + заголовок) <span class="tag tag-hc">High</span></div>
+    </details>
+  </details>
+</details>
+
+<details><summary>6 · Section/Categories/Sports <span class="tag tag-hc">High</span></summary>
+  <details><summary>Block/Categories/Sports → CardSlider <span class="tag tag-lc">Low</span></summary>
+    <div class="leaf">Header → Headline (Divider, ActionButton, SliderButton ×2) <span class="tag tag-lc">Low</span></div>
+    <details><summary>Body → <b>SportCard</b> ×N <span class="tag tag-hc">High</span></summary>
+      <div class="leaf">Ratio (2:3) · Sport-Background <span class="tag tag-hc">High</span> · Image (liveBetting) · Label · Frame-Sport (Type=Simple) <span class="tag tag-hc">High</span></div>
+    </details>
+  </details>
+</details>
+
+<details><summary>11 &amp; 16 · Section/Banner/PromoBanner (Primary + Secondary) <span class="tag tag-hc">High</span></summary>
+  <details><summary>SpecialPromotionBanner/Default/Primary</summary>
+    <div class="leaf">SpecialPromotionBanner.Art <span class="tag tag-hc">High</span></div>
+    <div class="leaf">Frame-Promotion-card (L · Middle · R = 3-слайс) <span class="tag tag-hc">High</span></div>
+    <details><summary>content</summary>
+      <div class="leaf">Row/Headline <span class="tag tag-lc">Low</span></div>
+      <div class="leaf">Row/Button → <b>Button</b> (Secondary, part=Left/Middle/right = 3-слайс) <span class="tag tag-hc">High</span></div>
+    </details>
+  </details>
+</details>
+
+<h2>🟩 Где нужен High-Custom (декор)</h2>
+<div class="note">
+Авторитетный маркер тира — <b>зелёная рамка <code>#06b204</code></b> на компонент-сете (Rule 0). Ниже — список по декоративным признакам и diff Dragonia↔baseline; помечу, что подтвердить можно проверкой рамки сета.
+</div>
+<ul>
+  <li><b>MainBanner</b> (+ MainBanner.Art) — герой: арт-слот + CTA, градиент.</li>
+  <li><b>SpecialPromotionBanner</b> (+ Art, Frame-Promotion-card 3-слайс) — промо-баннеры (×2 на странице).</li>
+  <li><b>Button</b> — 3-слайс металл-кнопка (в баннерах size=lg / Secondary).</li>
+  <li><b>GameCard</b> (GameCard/TopGames) — карточка игры: арт + номер-рейтинг + рамка.</li>
+  <li><b>SportCard</b> — Sport-Background + image + Frame-Sport (декоративная рама).</li>
+  <li><b>Categories / CategoryMenu</b> — декоративный фон BG-casino-categories.</li>
+  <li><b>Layout.Main.Background</b> — фон/паттерн всей страницы.</li>
+</ul>
+<div class="note">
+<b>Low-Custom (только переменные):</b> Section · Container · Slot · CardSlider (оболочка) · Headline · Divider · SliderButton · ActionButton · Header · Subheader · Footer · Drawer.
+</div>

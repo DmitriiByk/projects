@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "source": "Figma ForgeX | Library (natBqfvZvRAk2RrvPIpBmo)",
+    "page": "Button",
+    "node": "77:35600",
+    "variant": "variant=primary, size=md, state=default",
+    "captured_by": "dumpSignals() v1.1",
+    "purpose": "Золотой профиль-эталон для регресс-проверки dumpSignals + вход для Слоя 2 (дерево)."
+  },
+  "layer_count": 31,
+  "flags": {
+    "stretches_horizontally": true,
+    "is_three_slice": true,
+    "is_raster_bg": false,
+    "has_texture_overlay": true,
+    "has_gradient_sheen": true,
+    "has_inner_shadow": false,
+    "has_lift_shadow": false,
+    "has_edge_glow": false,
+    "has_blur": false,
+    "has_fx_blend_layer": true,
+    "has_ornament_vector": true,
+    "has_mask": true,
+    "is_pill": false,
+    "material": "metallic"
+  },
+  "reuse_candidates": [
+    { "name": "Button texture", "count": 3 },
+    { "name": "Icon/DataAdd", "count": 2 },
+    { "name": "variant=mask", "count": 2 },
+    { "name": "Property 1=c", "count": 1 },
+    { "name": "Property 1=l", "count": 1 },
+    { "name": "Property 1=r", "count": 1 },
+    { "name": "Property 2=l", "count": 1 },
+    { "name": "Property 2=r", "count": 1 },
+    { "name": "primary", "count": 1 }
+  ],
+  "expected_strategy": {
+    "note": "Вход для Слоя 2. По флагам ожидаемый набор приёмов build-game-ui:",
+    "techniques": ["T1 (3-слайс L/C/R)", "T8 (металл-градиент рама)", "T7 (текстурный оверлей, LINEAR_DODGE)", "T9 (вектор-уголки Rectangle 17)", "T14 (состояния: default/hovered/pressed/disabled/loading)"],
+    "reuse_first": ["Button texture", "Icon/DataAdd", "variant=mask"]
+  }
+}

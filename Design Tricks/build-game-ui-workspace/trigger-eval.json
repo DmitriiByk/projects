@@ -1,0 +1,25 @@
+{
+  "skill": "build-game-ui",
+  "queries": [
+    {"id":1,"should_trigger":true,"q":"вот нода кнопки в фигме natBqfvZvRAk2RrvPIpBmo node 169016:15958, сделай такую же но с состояниями hover/active/disable"},
+    {"id":2,"should_trigger":true,"q":"повтори этот инпут из казино-аппа — поле вдавленное, слева иконка лупы, справа крестик очистки, сделай в figma"},
+    {"id":3,"should_trigger":true,"q":"собери в фигме карточку игры как на скрине: превью сверху, бейдж NEW в углу, вырезанный уголок у рамки, цена и кнопка играть"},
+    {"id":4,"should_trigger":true,"q":"need to rebuild this neon toggle switch in figma from the reference, make it responsive when the container stretches"},
+    {"id":5,"should_trigger":true,"q":"сделай прогресс-бар уровня игрока с энергетической заливкой как в этом слоте, трек вдавленный"},
+    {"id":6,"should_trigger":true,"q":"есть макет промо-баннера казино, растры (фон+персонаж) переиспользуй раздельно, остальной хром перерисуй сам, нужны брейкпоинты 768/1280"},
+    {"id":7,"should_trigger":true,"q":"replicate these cream beveled tabs from the original, reuse the original icons, put them under the banner"},
+    {"id":8,"should_trigger":true,"q":"сделай золотую CTA с градиентным текстом, металлической рамкой и оранжевым свечением, hover пусть отличается сильнее"},
+    {"id":9,"should_trigger":true,"q":"построй бейдж-пилюлю с объёмом и иконкой как в casinolab, на тёмном UI"},
+    {"id":10,"should_trigger":true,"q":"this dialog panel from the slot game needs a radial gradient bg and an ornate gold frame — build it in figma"},
+    {"id":11,"should_trigger":false,"q":"напиши React-компонент кнопки с tailwind для нашего сайта, props variant и size, без фигмы"},
+    {"id":12,"should_trigger":false,"q":"сделай флоучарт архитектуры авторизации в figjam через mermaid"},
+    {"id":13,"should_trigger":false,"q":"извлеки дизайн-токены (цвета, типографику) из этого фрейма и обнови переменные в дизайн-системе"},
+    {"id":14,"should_trigger":false,"q":"сделай презентацию из 5 слайдов про маркетинг онлайн-казино"},
+    {"id":15,"should_trigger":false,"q":"почини баг в моём figma-плагине на typescript, падает на setFillStyleId"},
+    {"id":16,"should_trigger":false,"q":"ресайзни эти 40 скриншотов под @2x @3x и сконверти в webp для flutter-ассетов"},
+    {"id":17,"should_trigger":false,"q":"проведи ux-ревью этого экрана онбординга, что улучшить по иерархии и доступности"},
+    {"id":18,"should_trigger":false,"q":"сгенерируй генеративный арт-паттерн на p5.js, флоу-филд с частицами"},
+    {"id":19,"should_trigger":false,"q":"построй дашборд с метриками выручки казино по дням, фильтры и графики"},
+    {"id":20,"should_trigger":false,"q":"нарисуй простую иконку шестерёнки 24x24 как svg для кнопки настроек"}
+  ]
+}

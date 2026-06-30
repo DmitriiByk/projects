@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "file": "ForgeX | Library — clean baseline (no concept styling)",
+    "fileKey": "wXVTATgCimvirF9shAwk39",
+    "captured_by": "dumpSignals (single-per-call workaround; banners shallow d<=2 + skipInvisible)",
+    "purpose": "Эталон un-decorated структуры для diff против концепт-файлов (rebrand).",
+    "status": "9/9 done"
+  },
+  "components": {
+    "Button":       { "variantId": "77:35600",     "variant": "variant=primary, size=md, state=default", "material": "flat",   "key_flags": ["has_ornament_vector","has_mask"], "reuse": ["variant=mask","Icon/DataAdd"], "note": "плоский; иконные маски-слоты" },
+    "GameCard":     { "variantId": "23705:90697",  "variant": "size=sm, ratio=2:3",                       "material": "raster", "key_flags": ["is_raster_bg"], "reuse": ["variant=01"], "note": "тонкая обёртка (L3) → декор в variant=01; слот арта" },
+    "Badge":        { "variantId": "95225:448362", "variant": "variant=warning, size=md",                 "material": "flat",   "key_flags": ["is_pill","has_ornament_vector"], "reuse": ["variant=regular","Icon/ImageOutlined"], "note": "пилюля + иконка" },
+    "Chip":         { "variantId": "95375:16588",  "variant": "state=default, hasCounter, hasStartIcon",  "material": "flat",   "key_flags": ["is_pill","has_mask","has_ornament_vector"], "reuse": ["variant=mask","Icon/ImageOutlined"], "note": "пилюля, иконные слоты" },
+    "ProgressBar":  { "variantId": "5675:57854",   "variant": "size=lg, progress=0",                      "material": "flat",   "key_flags": ["is_pill"], "reuse": ["size=lg","position=outside"], "note": "трек-пилюля" },
+    "Callout":      { "variantId": "86297:98834",  "variant": "state=info, hasIcon",                      "material": "flat",   "key_flags": ["has_mask","has_ornament_vector"], "reuse": ["variant=mask","Icon/InfoCircle"], "note": "плоский, иконка" },
+    "MainBanner":   { "variantId": "24686:141120", "variant": "breakpoint=desktop", "depth": "shallow d<=2", "material": "flat", "key_flags": [], "reuse": ["breakpoint=desktop"], "note": "обёртка-брейкпоинт; контент в nested-мастере (как GameCard)" },
+    "GameBanner":   { "variantId": "119320:55757", "variant": "breakpoint=desktop", "depth": "shallow d<=2", "material": "flat", "key_flags": [], "reuse": [], "note": "обёртка-брейкпоинт" },
+    "SpecialPromotionBanner": { "variantId": "24122:24028", "variant": "breakpoint=desktop", "depth": "shallow d<=2", "material": "flat", "key_flags": [], "reuse": ["variant=dekstop"], "note": "обёртка-брейкпоинт" }
+  },
+  "summary": {
+    "all_material": "flat/raster — как и ожидается от чистой системы без концепта",
+    "structural_signals": "пилюли (Badge/Chip/ProgressBar), иконные маски-слоты (Button/Chip/Callout), растровые слоты (GameCard), обёртки-брейкпоинты у баннеров (контент в nested-мастере, L3)",
+    "decoration_delta": "нулевая — это baseline; дельта появится при diff против раскрашенного концепта"
+  }
+}

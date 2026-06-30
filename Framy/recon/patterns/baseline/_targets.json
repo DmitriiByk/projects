@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "file": "ForgeX | Library (clean baseline, no concept styling)",
+    "fileKey": "wXVTATgCimvirF9shAwk39",
+    "note": "Представители (md/default) декоративных High-Custom компонентов для baseline-профилей. node-id совпадают со структурой ForgeX. Дамп через getNodeByIdAsync (страницы не грузить).",
+    "status": "targets resolved; dumpSignals pending (Figma MCP connection dropped — resume when restored)"
+  },
+  "targets": {
+    "Button": { "variantId": "77:35600", "variant": "variant=primary, size=md, state=default", "setId": "84:48081" },
+    "GameCard": { "variantId": "23705:90697", "variant": "size=sm, ratio=2:3", "setId": "23705:79345" },
+    "MainBanner": { "variantId": "24686:141120", "variant": "breakpoint=desktop", "setId": "24686:370" },
+    "Badge": { "variantId": "95225:448362", "variant": "variant=warning, size=md, context=default, hasText=true, hasIcon=true", "setId": "6873:128522" },
+    "Chip": { "variantId": "95375:16588", "variant": "state=default, isActive=false, hasCounter=true, hasStartIcon=true", "setId": "95375:16589" },
+    "GameBanner": { "variantId": "119320:55757", "variant": "breakpoint=desktop", "setId": "118679:319703" },
+    "SpecialPromotionBanner": { "variantId": "24122:24028", "variant": "breakpoint=desktop", "setId": "24122:24027" },
+    "ProgressBar": { "variantId": "5675:57854", "variant": "size=lg, progress=0", "setId": "5675:57853" },
+    "Callout": { "variantId": "86297:98834", "variant": "state=info, hasIcon=true", "setId": "86297:98833" }
+  }
+}
